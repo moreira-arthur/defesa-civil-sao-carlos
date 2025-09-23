@@ -6,7 +6,7 @@ import { useAccessibility } from './AccessibilityContext';
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { speakText } = useAccessibility();
+  const { speakText, settings } = useAccessibility();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,16 +43,17 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg">DC</span>
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-cd-blue-primary rounded flex items-center justify-center">
+              <span className="text-white font-bold text-sm">CD</span>
             </div>
-            <div>
-              <h1 className="font-heading text-lg font-bold text-foreground">
-                Defesa Civil
-              </h1>
-              <p className="text-xs text-muted-foreground">São Carlos - SP</p>
-            </div>
+            <span 
+              className="font-heading font-semibold text-foreground cursor-pointer" 
+              onClick={() => speakText('Defesa Civil São Carlos')}
+              tabIndex={settings.ttsEnabled ? 0 : -1}
+            >
+              Defesa Civil São Carlos
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -62,7 +63,7 @@ export const Header = () => {
                 key={item.href}
                 onClick={() => handleNavClick(item.href, item.label)}
                 onFocus={handleFocus}
-                className="text-foreground hover:text-primary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary rounded px-2 py-1"
+                className="text-foreground hover:text-primary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary rounded px-2 py-1 min-h-[44px]"
                 aria-label={`Navegar para ${item.label}`}
               >
                 {item.label}

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Settings, Type, Eye, Volume2, Minus, Plus, Palette } from 'lucide-react';
+import { Accessibility, Type, Volume2, Minus, Plus, Palette, RotateCcw, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useAccessibility } from './AccessibilityContext';
 
 export const AccessibilityToolbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { settings, updateSettings } = useAccessibility();
+  const { settings, updateSettings, resetSettings } = useAccessibility();
 
   const fontSizes = ['small', 'medium', 'large', 'xl', '2xl'] as const;
   const lineHeights = ['tight', 'normal', 'relaxed', 'loose'] as const;
@@ -46,20 +46,39 @@ export const AccessibilityToolbar = () => {
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      <Button
-        onClick={() => setIsOpen(!isOpen)}
-        className="mb-2 h-12 w-12 rounded-full bg-primary hover:bg-primary/90 shadow-strong"
-        size="icon"
-        aria-label="Abrir ferramentas de acessibilidade"
-      >
-        <Settings className="h-6 w-6" />
-      </Button>
+      <div className="relative">
+        <Button
+          onClick={() => setIsOpen(!isOpen)}
+          className="mb-2 h-12 w-12 rounded-full bg-primary hover:bg-primary/90 shadow-strong"
+          size="icon"
+          aria-label="Abrir ferramentas de acessibilidade"
+        >
+          <Accessibility className="h-6 w-6" />
+        </Button>
+        
+        {/* Tooltip */}
+        <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900 text-white text-sm rounded opacity-0 hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
+          Opções de Acessibilidade
+        </div>
+      </div>
 
       {isOpen && (
-        <Card className="accessibility-toolbar p-4 w-80 animate-fade-in-up">
-          <h3 className="font-heading text-lg font-semibold mb-4 text-foreground">
-            Acessibilidade
-          </h3>
+        <Card className="accessibility-toolbar p-4 w-80 max-w-[calc(100vw-2rem)] animate-fade-in-up">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-heading text-lg font-semibold text-foreground">
+              Acessibilidade
+            </h3>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={resetSettings}
+              className="text-muted-foreground hover:text-foreground"
+              aria-label="Restaurar configurações padrão"
+            >
+              <RotateCcw className="h-4 w-4 mr-1" />
+              Restaurar
+            </Button>
+          </div>
           
           {/* Font Size Controls */}
           <div className="mb-4">
@@ -123,11 +142,24 @@ export const AccessibilityToolbar = () => {
             </div>
           </div>
 
+          {/* Dark Mode Toggle */}
+          <div className="mb-4">
+            <Button
+              variant={settings.theme === 'dark' ? "default" : "outline"}
+              size="sm"
+              className="w-full justify-start"
+              onClick={() => updateSettings({ theme: settings.theme === 'dark' ? 'default' : 'dark' })}
+            >
+              <Moon className="h-4 w-4 mr-2" />
+              Tema Escuro
+            </Button>
+          </div>
+
           {/* Theme Selection */}
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2 text-foreground">
               <Palette className="inline h-4 w-4 mr-1" />
-              Tema
+              Outros Temas
             </label>
             <div className="space-y-1">
               {themes.map(theme => (

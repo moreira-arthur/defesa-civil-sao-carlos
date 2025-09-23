@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 interface AccessibilitySettings {
   fontSize: 'small' | 'medium' | 'large' | 'xl' | '2xl';
   lineHeight: 'tight' | 'normal' | 'relaxed' | 'loose';
-  theme: 'default' | 'high-contrast' | 'monochrome';
+  theme: 'default' | 'high-contrast' | 'monochrome' | 'dark';
   dyslexiaFriendly: boolean;
   ttsEnabled: boolean;
 }
@@ -11,6 +11,7 @@ interface AccessibilitySettings {
 interface AccessibilityContextType {
   settings: AccessibilitySettings;
   updateSettings: (newSettings: Partial<AccessibilitySettings>) => void;
+  resetSettings: () => void;
   speakText: (text: string) => void;
 }
 
@@ -39,6 +40,10 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
     setSettings(prev => ({ ...prev, ...newSettings }));
   };
 
+  const resetSettings = () => {
+    setSettings(defaultSettings);
+  };
+
   const speakText = (text: string) => {
     if (settings.ttsEnabled && 'speechSynthesis' in window) {
       window.speechSynthesis.cancel();
@@ -52,9 +57,16 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
   // Apply theme class to document body
   useEffect(() => {
     const body = document.body;
-    body.classList.remove('high-contrast', 'monochrome');
+    const html = document.documentElement;
     
-    if (settings.theme !== 'default') {
+    // Remove all theme classes
+    body.classList.remove('high-contrast', 'monochrome');
+    html.classList.remove('dark');
+    
+    // Apply theme
+    if (settings.theme === 'dark') {
+      html.classList.add('dark');
+    } else if (settings.theme !== 'default') {
       body.classList.add(settings.theme);
     }
     
@@ -75,7 +87,7 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
   }, [settings]);
 
   return (
-    <AccessibilityContext.Provider value={{ settings, updateSettings, speakText }}>
+    <AccessibilityContext.Provider value={{ settings, updateSettings, resetSettings, speakText }}>
       {children}
     </AccessibilityContext.Provider>
   );
