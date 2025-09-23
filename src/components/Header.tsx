@@ -1,0 +1,138 @@
+import { useState, useEffect } from 'react';
+import { Menu, X, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useAccessibility } from './AccessibilityContext';
+
+export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const { speakText } = useAccessibility();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (href: string, text: string) => {
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+    speakText(`Navegando para ${text}`);
+  };
+
+  const handleFocus = (e: React.FocusEvent<HTMLElement>) => {
+    speakText(e.currentTarget.textContent || '');
+  };
+
+  const navItems = [
+    { href: '#home', label: 'Início' },
+    { href: '#about', label: 'Sobre' },
+    { href: '#alerts', label: 'Alertas' },
+    { href: '#plan', label: 'Plano Preventivo' },
+    { href: '#contact', label: 'Contato' },
+  ];
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        isScrolled ? 'bg-card shadow-medium' : 'bg-card/95 backdrop-blur-sm'
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex items-center space-x-3">
+            <div className="h-10 w-10 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-lg">DC</span>
+            </div>
+            <div>
+              <h1 className="font-heading text-lg font-bold text-foreground">
+                Defesa Civil
+              </h1>
+              <p className="text-xs text-muted-foreground">São Carlos - SP</p>
+            </div>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6" role="navigation">
+            {navItems.map((item) => (
+              <button
+                key={item.href}
+                onClick={() => handleNavClick(item.href, item.label)}
+                onFocus={handleFocus}
+                className="text-foreground hover:text-primary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary rounded px-2 py-1"
+                aria-label={`Navegar para ${item.label}`}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+
+          {/* Emergency Button */}
+          <div className="flex items-center space-x-3">
+            <Button
+              variant="destructive"
+              className="emergency-pulse hidden sm:flex items-center gap-2 min-h-[44px]"
+              onFocus={handleFocus}
+              onClick={() => {
+                speakText('Discando emergência 199');
+                window.open('tel:199', '_self');
+              }}
+              aria-label="Ligar para emergência 199"
+            >
+              <Phone className="h-4 w-4" />
+              <span className="font-semibold">199</span>
+            </Button>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden min-h-[44px] min-w-[44px]"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onFocus={handleFocus}
+              aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </Button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden border-t border-border animate-fade-in-up">
+            <nav className="py-4 space-y-2" role="navigation">
+              {navItems.map((item) => (
+                <button
+                  key={item.href}
+                  onClick={() => handleNavClick(item.href, item.label)}
+                  onFocus={handleFocus}
+                  className="block w-full text-left px-3 py-2 text-foreground hover:bg-accent hover:text-accent-foreground rounded transition-colors font-medium min-h-[44px]"
+                  aria-label={`Navegar para ${item.label}`}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <Button
+                variant="destructive"
+                className="w-full mt-4 emergency-pulse min-h-[44px]"
+                onFocus={handleFocus}
+                onClick={() => {
+                  speakText('Discando emergência 199');
+                  window.open('tel:199', '_self');
+                }}
+                aria-label="Ligar para emergência 199"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                Emergência 199
+              </Button>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
