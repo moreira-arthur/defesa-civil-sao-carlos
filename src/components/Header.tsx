@@ -39,25 +39,28 @@ export const Header = () => {
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled ? 'bg-card shadow-medium' : 'bg-card/95 backdrop-blur-sm'
       }`}
+      role="banner"
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-cd-blue-primary rounded flex items-center justify-center">
+            <div className="w-8 h-8 bg-cd-blue-primary rounded flex items-center justify-center" aria-hidden="true">
               <span className="text-white font-bold text-sm">CD</span>
             </div>
             <span 
               className="font-heading font-semibold text-foreground cursor-pointer" 
               onClick={() => speakText('Defesa Civil São Carlos')}
               tabIndex={settings.ttsEnabled ? 0 : -1}
+              role="heading"
+              aria-level={1}
             >
               Defesa Civil São Carlos
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6" role="navigation">
+          <nav className="hidden md:flex items-center space-x-6" role="navigation" aria-label="Navegação principal">
             {navItems.map((item) => (
               <button
                 key={item.href}
@@ -104,8 +107,8 @@ export const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-border animate-fade-in-up">
-            <nav className="py-4 space-y-2" role="navigation">
+          <aside className="md:hidden border-t border-border animate-fade-in-up" aria-label="Menu mobile">
+            <nav className="py-4 space-y-2" role="navigation" aria-label="Navegação mobile">
               {navItems.map((item) => (
                 <button
                   key={item.href}
@@ -131,7 +134,7 @@ export const Header = () => {
                 Emergência 199
               </Button>
             </nav>
-          </div>
+          </aside>
         )}
       </div>
     </header>

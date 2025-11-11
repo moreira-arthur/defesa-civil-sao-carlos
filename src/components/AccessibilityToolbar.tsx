@@ -11,10 +11,10 @@ export const AccessibilityToolbar = () => {
   const fontSizes = ['small', 'medium', 'large', 'xl', '2xl'] as const;
   const lineHeights = ['tight', 'normal', 'relaxed', 'loose'] as const;
   const themes = [
-    { key: 'default', label: 'Padrão' },
-    { key: 'high-contrast', label: 'Alto Contraste' },
-    { key: 'monochrome', label: 'Monocromático' },
-  ] as const;
+    { key: 'light' as const, label: 'Padrão' },
+    { key: 'highContrast' as const, label: 'Alto Contraste' },
+    { key: 'monochrome' as const, label: 'Monocromático' },
+  ];
 
   const increaseFontSize = () => {
     const currentIndex = fontSizes.indexOf(settings.fontSize);
@@ -148,7 +148,7 @@ export const AccessibilityToolbar = () => {
               variant={settings.theme === 'dark' ? "default" : "outline"}
               size="sm"
               className="w-full justify-start"
-              onClick={() => updateSettings({ theme: settings.theme === 'dark' ? 'default' : 'dark' })}
+              onClick={() => updateSettings({ theme: settings.theme === 'dark' ? 'light' : 'dark' })}
             >
               <Moon className="h-4 w-4 mr-2" />
               Tema Escuro

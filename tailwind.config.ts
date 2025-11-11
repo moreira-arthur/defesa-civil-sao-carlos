@@ -1,15 +1,14 @@
 import type { Config } from "tailwindcss";
-import theme from "./src/config/theme.config";
+import { colors, typography, spacing, effects } from "./src/config/design";
 
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
-    container: theme.spacing.container,
+    container: spacing.container,
     extend: {
       colors: {
-        // Referências às variáveis CSS (necessário para temas dinâmicos)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -61,34 +60,19 @@ export default {
         },
       },
       fontFamily: {
-        sans: theme.typography.fonts.sans,
-        heading: theme.typography.fonts.heading,
-        dyslexic: theme.typography.fonts.dyslexic,
+        sans: typography.fontFamily.sans,
+        heading: typography.fontFamily.heading,
+        dyslexic: typography.fontFamily.dyslexic,
       },
-      boxShadow: {
-        soft: theme.shadows.soft,
-        medium: theme.shadows.medium,
-        strong: theme.shadows.strong,
-      },
-      borderRadius: {
-        lg: theme.spacing.radius.lg,
-        md: theme.spacing.radius.md,
-        sm: theme.spacing.radius.sm,
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
+      fontSize: typography.fontSize,
+      fontWeight: typography.fontWeight,
+      lineHeight: typography.lineHeight,
+      letterSpacing: typography.letterSpacing,
+      boxShadow: effects.boxShadow,
+      borderRadius: spacing.borderRadius,
+      keyframes: effects.keyframes,
+      animation: effects.animation,
+      transitionTimingFunction: effects.easing,
     },
   },
   plugins: [require("tailwindcss-animate")],

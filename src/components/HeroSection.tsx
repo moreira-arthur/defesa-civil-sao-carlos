@@ -30,14 +30,16 @@ export const HeroSection = () => {
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}
+      role="region"
+      aria-label="Seção principal"
     >
       <div className="absolute inset-0 bg-primary/70" aria-hidden="true"></div>
       
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="animate-fade-in-up">
-          <div className="flex justify-center mb-6">
+        <article className="animate-fade-in-up">
+          <div className="flex justify-center mb-6" aria-hidden="true">
             <div className="h-20 w-20 bg-secondary rounded-full flex items-center justify-center animate-pulse">
-              <Shield className="h-10 w-10 text-secondary-foreground" aria-hidden="true" />
+              <Shield className="h-10 w-10 text-secondary-foreground" />
             </div>
           </div>
           
@@ -59,7 +61,7 @@ export const HeroSection = () => {
             Monitoramento, alertas e ações preventivas para uma cidade mais segura e resiliente.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <nav className="flex flex-col sm:flex-row gap-4 justify-center items-center" aria-label="Ações rápidas">
             <Button
               size="lg"
               variant="destructive"
@@ -68,7 +70,7 @@ export const HeroSection = () => {
               onFocus={handleFocus}
               aria-label="Ligar para emergência 199"
             >
-              <Phone className="h-5 w-5 mr-2" />
+              <Phone className="h-5 w-5 mr-2" aria-hidden="true" />
               Emergência 199
             </Button>
             
@@ -80,50 +82,53 @@ export const HeroSection = () => {
               onFocus={handleFocus}
               aria-label="Cadastrar para receber alertas SMS"
             >
-              <MessageSquare className="h-5 w-5 mr-2" />
+              <MessageSquare className="h-5 w-5 mr-2" aria-hidden="true" />
               Receber Alertas SMS
             </Button>
-          </div>
+          </nav>
           
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div 
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto" role="list">
+            <article 
               className="bg-card/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20"
               onFocus={handleFocus}
               tabIndex={0}
+              role="listitem"
             >
               <h3 className="font-heading text-lg font-semibold mb-2">Monitoramento 24h</h3>
               <p className="text-primary-foreground/80">
                 Equipes especializadas acompanham as condições climáticas e riscos em tempo real.
               </p>
-            </div>
+            </article>
             
-            <div 
+            <article 
               className="bg-card/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20"
               onFocus={handleFocus}
               tabIndex={0}
+              role="listitem"
             >
               <h3 className="font-heading text-lg font-semibold mb-2">Alertas Gratuitos</h3>
               <p className="text-primary-foreground/80">
                 Receba notificações SMS gratuitas sobre situações de risco em sua região.
               </p>
-            </div>
+            </article>
             
-            <div 
+            <article 
               className="bg-card/10 backdrop-blur-sm rounded-lg p-6 border border-primary-foreground/20"
               onFocus={handleFocus}
               tabIndex={0}
+              role="listitem"
             >
               <h3 className="font-heading text-lg font-semibold mb-2">Ação Preventiva</h3>
               <p className="text-primary-foreground/80">
                 Planos e operações especiais para minimizar danos e proteger vidas.
               </p>
-            </div>
+            </article>
           </div>
-        </div>
+        </article>
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
         <div className="h-8 w-px bg-primary-foreground/50"></div>
       </div>
     </section>

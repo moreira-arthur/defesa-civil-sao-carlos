@@ -1,9 +1,12 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { typography } from '@/config/design';
+import { applyTheme, applyFontSizeMultiplier, applyLineHeight } from '@/utils/theme.utils';
+import type { ColorTheme } from '@/config/design';
 
 interface AccessibilitySettings {
   fontSize: 'small' | 'medium' | 'large' | 'xl' | '2xl';
   lineHeight: 'tight' | 'normal' | 'relaxed' | 'loose';
-  theme: 'default' | 'high-contrast' | 'monochrome' | 'dark';
+  theme: ColorTheme;
   dyslexiaFriendly: boolean;
   ttsEnabled: boolean;
 }
@@ -18,7 +21,7 @@ interface AccessibilityContextType {
 const defaultSettings: AccessibilitySettings = {
   fontSize: 'medium',
   lineHeight: 'normal',
-  theme: 'default',
+  theme: 'light',
   dyslexiaFriendly: false,
   ttsEnabled: false,
 };
@@ -54,29 +57,20 @@ export const AccessibilityProvider = ({ children }: { children: ReactNode }) => 
     }
   };
 
-  // Apply theme class to document body
+  // Apply accessibility settings
   useEffect(() => {
     const body = document.body;
-    const html = document.documentElement;
-    
-    // Remove all theme classes
-    body.classList.remove('high-contrast', 'monochrome');
-    html.classList.remove('dark');
     
     // Apply theme
-    if (settings.theme === 'dark') {
-      html.classList.add('dark');
-    } else if (settings.theme !== 'default') {
-      body.classList.add(settings.theme);
-    }
+    applyTheme(settings.theme);
     
-    // Apply font size
-    body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large', 'font-size-xl', 'font-size-2xl');
-    body.classList.add(`font-size-${settings.fontSize}`);
+    // Apply font size multiplier
+    const fontSizeMultiplier = typography.fontSizeMultipliers[settings.fontSize];
+    applyFontSizeMultiplier(fontSizeMultiplier);
     
     // Apply line height
-    body.classList.remove('line-height-tight', 'line-height-normal', 'line-height-relaxed', 'line-height-loose');
-    body.classList.add(`line-height-${settings.lineHeight}`);
+    const lineHeightValue = typography.lineHeight[settings.lineHeight];
+    applyLineHeight(lineHeightValue);
     
     // Apply dyslexia-friendly font
     if (settings.dyslexiaFriendly) {
