@@ -1,19 +1,15 @@
 import type { Config } from "tailwindcss";
+import theme from "./src/config/theme.config";
 
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    container: theme.spacing.container,
     extend: {
       colors: {
+        // Referências às variáveis CSS (necessário para temas dinâmicos)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -65,36 +61,28 @@ export default {
         },
       },
       fontFamily: {
-        'sans': ['Inter', 'system-ui', 'sans-serif'],
-        'heading': ['Poppins', 'system-ui', 'sans-serif'],
-        'dyslexic': ['OpenDyslexic', 'Comic Sans MS', 'cursive'],
+        sans: theme.typography.fonts.sans,
+        heading: theme.typography.fonts.heading,
+        dyslexic: theme.typography.fonts.dyslexic,
       },
       boxShadow: {
-        'soft': 'var(--shadow-soft)',
-        'medium': 'var(--shadow-medium)',
-        'strong': 'var(--shadow-strong)',
+        soft: theme.shadows.soft,
+        medium: theme.shadows.medium,
+        strong: theme.shadows.strong,
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: theme.spacing.radius.lg,
+        md: theme.spacing.radius.md,
+        sm: theme.spacing.radius.sm,
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {

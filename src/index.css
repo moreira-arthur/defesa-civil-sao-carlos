@@ -2,80 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Civil Defense São Carlos Design System 
-All colors MUST be HSL format for proper theming and accessibility.
-*/
+/**
+ * Civil Defense São Carlos - Design System
+ * 
+ * IMPORTANTE: Este arquivo usa as variáveis CSS para aplicar o tema dinamicamente.
+ * Para modificar cores, fontes e estilos, edite: src/config/theme.config.ts
+ * 
+ * As variáveis CSS abaixo são necessárias para permitir a troca dinâmica de temas
+ * (claro, escuro, alto contraste, monocromático) via JavaScript.
+ */
 
 @layer base {
   :root {
-    /* Core Civil Defense Color Palette */
-    --cd-blue-primary: 208 100% 17%; /* #002F56 */
-    --cd-orange-secondary: 38 100% 50%; /* #FFA700 */
+    /* Paleta de Cores da Defesa Civil */
+    --cd-blue-primary: 208 100% 17%;
+    --cd-orange-secondary: 38 100% 50%;
     --cd-blue-light: 208 60% 85%;
     --cd-orange-light: 38 60% 85%;
     
-    /* Default Theme */
+    /* Tema Padrão (Light Mode) */
     --background: 0 0% 100%;
-    --foreground: 0 0% 20%; /* #333333 */
+    --foreground: 0 0% 20%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
-    
-    --primary: var(--cd-blue-primary);
+    --primary: 208 100% 17%;
     --primary-foreground: 0 0% 100%;
-    --secondary: var(--cd-orange-secondary);
+    --secondary: 38 100% 50%;
     --secondary-foreground: 0 0% 100%;
-    
     --muted: 210 20% 96%;
     --muted-foreground: 0 0% 45%;
-    --accent: var(--cd-blue-light);
-    --accent-foreground: var(--cd-blue-primary);
-    
+    --accent: 208 60% 85%;
+    --accent-foreground: 208 100% 17%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     --success: 120 60% 50%;
     --success-foreground: 0 0% 100%;
-    --warning: var(--cd-orange-secondary);
+    --warning: 38 100% 50%;
     --warning-foreground: 0 0% 100%;
-    
     --border: 210 20% 90%;
     --input: 210 20% 94%;
-    --ring: var(--cd-orange-secondary);
+    --ring: 38 100% 50%;
     
-    /* Focus and Interactive States */
-    --focus-ring: var(--cd-orange-secondary);
+    /* Estados Interativos */
+    --focus-ring: 38 100% 50%;
     --hover-overlay: 0 0% 0% / 0.05;
     
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--cd-blue-primary)), hsl(var(--cd-blue-primary) / 0.8));
-    --gradient-section: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    /* Gradientes */
+    --gradient-hero: linear-gradient(135deg, hsl(208 100% 17%), hsl(208 100% 17% / 0.8));
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 20% 96%));
     
-    /* Shadows */
-    --shadow-soft: 0 2px 10px hsl(var(--cd-blue-primary) / 0.1);
-    --shadow-medium: 0 4px 20px hsl(var(--cd-blue-primary) / 0.15);
-    --shadow-strong: 0 8px 30px hsl(var(--cd-blue-primary) / 0.2);
+    /* Sombras */
+    --shadow-soft: 0 2px 10px hsl(208 100% 17% / 0.1);
+    --shadow-medium: 0 4px 20px hsl(208 100% 17% / 0.15);
+    --shadow-strong: 0 8px 30px hsl(208 100% 17% / 0.2);
     
-    /* Animations */
+    /* Transições */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s ease-out;
     
+    /* Border Radius */
     --radius: 0.5rem;
 
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
