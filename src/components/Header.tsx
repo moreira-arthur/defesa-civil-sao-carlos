@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
+import logo from '@/assets/logo-defesa-civil.png';
 import { Button } from '@/components/ui/button';
 import { useAccessibility } from './AccessibilityContext';
 
@@ -45,8 +46,8 @@ export const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-cd-blue-primary rounded flex items-center justify-center" aria-hidden="true">
-              <span className="text-white font-bold text-sm">CD</span>
+            <div className="w-10 h-10 rounded flex items-center justify-center" aria-hidden="true">
+              <img src={logo} alt="Defesa Civil" className="h-10 w-10` object-contain" />
             </div>
             <span 
               className="font-heading font-semibold text-foreground cursor-pointer" 
@@ -121,7 +122,7 @@ export const Header = () => {
                 </button>
               ))}
               <Button
-                variant="destructive"
+                variant="destructiveInverted"
                 className="w-full mt-4 emergency-pulse min-h-[44px]"
                 onFocus={handleFocus}
                 onClick={() => {
@@ -131,7 +132,7 @@ export const Header = () => {
                 aria-label="Ligar para emergência 199"
               >
                 <Phone className="h-4 w-4 mr-2" />
-                Emergência 199
+                Emergência 1990000
               </Button>
             </nav>
           </aside>

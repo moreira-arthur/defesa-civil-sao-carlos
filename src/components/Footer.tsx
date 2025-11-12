@@ -1,12 +1,14 @@
-import { Shield, Phone, Mail, MapPin } from 'lucide-react';
-import { useAccessibility } from './AccessibilityContext';
+import { Phone, Mail, MapPin } from "lucide-react";
+import logo from "@/assets/logo-defesa-civil.png";
+import logoSanca from "@/assets/logo-sanca.png";
+import { useAccessibility } from "./AccessibilityContext";
 
 export const Footer = () => {
   const { speakText } = useAccessibility();
   const currentYear = new Date().getFullYear();
 
   const handleFocus = (e: React.FocusEvent<HTMLElement>) => {
-    speakText(e.currentTarget.textContent || '');
+    speakText(e.currentTarget.textContent || "");
   };
 
   return (
@@ -17,18 +19,20 @@ export const Footer = () => {
             {/* Logo and Description */}
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="h-12 w-12 bg-secondary rounded-lg flex items-center justify-center">
-                  <Shield className="h-6 w-6 text-secondary-foreground" />
-                </div>
+                <img
+                  src={logo}
+                  alt="Defesa Civil"
+                  className="h-12 w-12 object-contain"
+                />
                 <div>
-                  <h3 
+                  <h3
                     className="font-heading text-lg font-bold"
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
                     Defesa Civil
                   </h3>
-                  <p 
+                  <p
                     className="text-sm text-primary-foreground/80"
                     onFocus={handleFocus}
                     tabIndex={0}
@@ -37,19 +41,20 @@ export const Footer = () => {
                   </p>
                 </div>
               </div>
-              <p 
+              <p
                 className="text-primary-foreground/80 leading-relaxed"
                 onFocus={handleFocus}
                 tabIndex={0}
               >
-                Protegendo vidas, bens e o meio ambiente através de ações coordenadas de 
-                prevenção, preparação e resposta a situações de risco e desastres.
+                Protegendo vidas, bens e o meio ambiente através de ações
+                coordenadas de prevenção, preparação e resposta a situações de
+                risco e desastres.
               </p>
             </div>
 
             {/* Quick Contact */}
             <div className="space-y-4">
-              <h4 
+              <h4
                 className="font-heading text-lg font-semibold"
                 onFocus={handleFocus}
                 tabIndex={0}
@@ -89,7 +94,7 @@ export const Footer = () => {
 
             {/* Location */}
             <div className="space-y-4">
-              <h4 
+              <h4
                 className="font-heading text-lg font-semibold"
                 onFocus={handleFocus}
                 tabIndex={0}
@@ -110,13 +115,15 @@ export const Footer = () => {
                   <p>Centro, São Carlos - SP</p>
                 </div>
               </a>
-              
-              <div 
+
+              <div
                 className="bg-primary-foreground/10 rounded-lg p-3 mt-4"
                 onFocus={handleFocus}
                 tabIndex={0}
               >
-                <h5 className="font-semibold text-sm mb-1">Horário de Atendimento</h5>
+                <h5 className="font-semibold text-sm mb-1">
+                  Horário de Atendimento
+                </h5>
                 <p className="text-sm text-primary-foreground/80">
                   Segunda a sexta: 8h às 17h
                 </p>
@@ -131,10 +138,14 @@ export const Footer = () => {
           <div className="border-t border-primary-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex items-center space-x-4">
-                <div className="h-8 w-8 bg-secondary rounded flex items-center justify-center">
-                  <span className="text-secondary-foreground font-bold text-sm">SC</span>
+                <div className="h-10 w-10 bg-secondary rounded flex items-center justify-center">
+                  <img
+                    src={logoSanca}
+                    alt="Logo da Prefeitura Municipal de São Carlos"
+                    className="h-10 w-10` object-contain"
+                  />
                 </div>
-                <p 
+                <p
                   className="text-sm text-primary-foreground/80"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -142,16 +153,17 @@ export const Footer = () => {
                   Prefeitura Municipal de São Carlos
                 </p>
               </div>
-              
+
               <div className="text-center md:text-right">
-                <p 
+                <p
                   className="text-sm text-primary-foreground/80"
                   onFocus={handleFocus}
                   tabIndex={0}
                 >
-                  © {currentYear} Defesa Civil de São Carlos. Todos os direitos reservados.
+                  © {currentYear} Defesa Civil de São Carlos. Todos os direitos
+                  reservados.
                 </p>
-                <p 
+                <p
                   className="text-xs text-primary-foreground/60 mt-1"
                   onFocus={handleFocus}
                   tabIndex={0}

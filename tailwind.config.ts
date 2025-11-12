@@ -26,6 +26,10 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        'destructive-inverted': {
+          DEFAULT: "hsl(var(--destructive-inverted))",
+          foreground: "hsl(var(--destructive-inverted-foreground))",
+        },
         success: {
           DEFAULT: "hsl(var(--success))",
           foreground: "hsl(var(--success-foreground))",

@@ -1,19 +1,28 @@
-import { useState } from 'react';
-import { Accessibility, Type, Volume2, Minus, Plus, Palette, RotateCcw, Moon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { useAccessibility } from './AccessibilityContext';
+import { useState } from "react";
+import {
+  Accessibility,
+  Type,
+  Volume2,
+  Minus,
+  Plus,
+  Palette,
+  RotateCcw,
+  Moon,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { useAccessibility } from "./AccessibilityContext";
 
 export const AccessibilityToolbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { settings, updateSettings, resetSettings } = useAccessibility();
 
-  const fontSizes = ['small', 'medium', 'large', 'xl', '2xl'] as const;
-  const lineHeights = ['tight', 'normal', 'relaxed', 'loose'] as const;
+  const fontSizes = ["small", "medium", "large", "xl", "2xl"] as const;
+  const lineHeights = ["tight", "normal", "relaxed", "loose"] as const;
   const themes = [
-    { key: 'light' as const, label: 'Padrão' },
-    { key: 'highContrast' as const, label: 'Alto Contraste' },
-    { key: 'monochrome' as const, label: 'Monocromático' },
+    { key: "light" as const, label: "Padrão" },
+    { key: "highContrast" as const, label: "Alto Contraste" },
+    { key: "monochrome" as const, label: "Monocromático" },
   ];
 
   const increaseFontSize = () => {
@@ -49,13 +58,13 @@ export const AccessibilityToolbar = () => {
       <div className="relative">
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="mb-2 h-12 w-12 rounded-full bg-primary hover:bg-primary/90 shadow-strong"
+          className="mb-2 h-12 w-12 rounded-full bg-secondary hover:bg-primary/90 shadow-strong"
           size="icon"
           aria-label="Abrir ferramentas de acessibilidade"
         >
-          <Accessibility className="h-6 w-6" />
+          <Accessibility className="h-6 w-6 text-black" />
         </Button>
-        
+
         {/* Tooltip */}
         <div className="absolute bottom-full right-0 mb-2 px-2 py-1 bg-gray-900 text-white text-sm rounded opacity-0 hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap">
           Opções de Acessibilidade
@@ -79,7 +88,7 @@ export const AccessibilityToolbar = () => {
               Restaurar
             </Button>
           </div>
-          
+
           {/* Font Size Controls */}
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2 text-foreground">
@@ -90,11 +99,10 @@ export const AccessibilityToolbar = () => {
                 variant="outline"
                 size="sm"
                 onClick={decreaseFontSize}
-                disabled={settings.fontSize === 'small'}
+                disabled={settings.fontSize === "small"}
                 aria-label="Diminuir fonte"
               >
-                <Minus className="h-4 w-4" />
-                A
+                <Minus className="h-4 w-4" />A
               </Button>
               <span className="text-sm text-muted-foreground min-w-16 text-center">
                 {settings.fontSize}
@@ -103,11 +111,10 @@ export const AccessibilityToolbar = () => {
                 variant="outline"
                 size="sm"
                 onClick={increaseFontSize}
-                disabled={settings.fontSize === '2xl'}
+                disabled={settings.fontSize === "2xl"}
                 aria-label="Aumentar fonte"
               >
-                <Plus className="h-4 w-4" />
-                A
+                <Plus className="h-4 w-4" />A
               </Button>
             </div>
           </div>
@@ -122,7 +129,7 @@ export const AccessibilityToolbar = () => {
                 variant="outline"
                 size="sm"
                 onClick={decreaseLineHeight}
-                disabled={settings.lineHeight === 'tight'}
+                disabled={settings.lineHeight === "tight"}
                 aria-label="Diminuir espaçamento"
               >
                 <Minus className="h-4 w-4" />
@@ -134,7 +141,7 @@ export const AccessibilityToolbar = () => {
                 variant="outline"
                 size="sm"
                 onClick={increaseLineHeight}
-                disabled={settings.lineHeight === 'loose'}
+                disabled={settings.lineHeight === "loose"}
                 aria-label="Aumentar espaçamento"
               >
                 <Plus className="h-4 w-4" />
@@ -145,10 +152,14 @@ export const AccessibilityToolbar = () => {
           {/* Dark Mode Toggle */}
           <div className="mb-4">
             <Button
-              variant={settings.theme === 'dark' ? "default" : "outline"}
+              variant={settings.theme === "dark" ? "default" : "outline"}
               size="sm"
               className="w-full justify-start"
-              onClick={() => updateSettings({ theme: settings.theme === 'dark' ? 'light' : 'dark' })}
+              onClick={() =>
+                updateSettings({
+                  theme: settings.theme === "dark" ? "light" : "dark",
+                })
+              }
             >
               <Moon className="h-4 w-4 mr-2" />
               Tema Escuro
@@ -162,7 +173,7 @@ export const AccessibilityToolbar = () => {
               Outros Temas
             </label>
             <div className="space-y-1">
-              {themes.map(theme => (
+              {themes.map((theme) => (
                 <Button
                   key={theme.key}
                   variant={settings.theme === theme.key ? "default" : "outline"}
@@ -182,7 +193,9 @@ export const AccessibilityToolbar = () => {
               variant={settings.dyslexiaFriendly ? "default" : "outline"}
               size="sm"
               className="w-full justify-start"
-              onClick={() => updateSettings({ dyslexiaFriendly: !settings.dyslexiaFriendly })}
+              onClick={() =>
+                updateSettings({ dyslexiaFriendly: !settings.dyslexiaFriendly })
+              }
             >
               <Type className="h-4 w-4 mr-2" />
               Fonte para Dislexia
@@ -195,7 +208,9 @@ export const AccessibilityToolbar = () => {
               variant={settings.ttsEnabled ? "default" : "outline"}
               size="sm"
               className="w-full justify-start"
-              onClick={() => updateSettings({ ttsEnabled: !settings.ttsEnabled })}
+              onClick={() =>
+                updateSettings({ ttsEnabled: !settings.ttsEnabled })
+              }
             >
               <Volume2 className="h-4 w-4 mr-2" />
               Leitura em Voz Alta
@@ -204,7 +219,8 @@ export const AccessibilityToolbar = () => {
 
           {settings.ttsEnabled && (
             <p className="text-xs text-muted-foreground mt-2">
-              Selecione qualquer texto para ouvir ou navegue com Tab para escutar o conteúdo focado.
+              Selecione qualquer texto para ouvir ou navegue com Tab para
+              escutar o conteúdo focado.
             </p>
           )}
         </Card>

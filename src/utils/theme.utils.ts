@@ -93,6 +93,11 @@ export function applyTheme(theme: ColorTheme): void {
     root.style.setProperty('--ring', hexToHSL(themeColors.ring));
     root.style.setProperty('--destructive', hexToHSL(themeColors.destructive.DEFAULT));
     root.style.setProperty('--destructive-foreground', hexToHSL(themeColors.destructive.foreground));
+    // Variáveis para destructive-inverted (se estiver definido no tema)
+    if (themeColors.destructiveInverted) {
+      root.style.setProperty('--destructive-inverted', hexToHSL(themeColors.destructiveInverted.DEFAULT));
+      root.style.setProperty('--destructive-inverted-foreground', hexToHSL(themeColors.destructiveInverted.foreground));
+    }
     root.style.setProperty('--success', hexToHSL(themeColors.success.DEFAULT));
     root.style.setProperty('--success-foreground', hexToHSL(themeColors.success.foreground));
     root.style.setProperty('--warning', hexToHSL(themeColors.warning.DEFAULT));
