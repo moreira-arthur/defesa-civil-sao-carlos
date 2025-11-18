@@ -49,7 +49,7 @@ export const colors = {
 
     muted: {
       DEFAULT: "#F5F7FA",
-      foreground: "#737373",
+      foreground: "#333",
     },
 
     accent: {

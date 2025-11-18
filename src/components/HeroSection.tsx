@@ -51,7 +51,7 @@ export const HeroSection = () => {
             onFocus={handleFocus}
             tabIndex={0}
           >
-            São Carlos Civil Defense:
+            Defesa Civil de São Carlos
             <br />
             <span className="text-secondary">Prevenção e Cuidado</span> ao seu
             lado
