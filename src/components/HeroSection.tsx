@@ -24,7 +24,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground"
+      className="relative min-h-[calc(100vh-4rem)] pt-16 flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground"
       style={{
         backgroundImage: `linear-gradient(135deg, rgba(0, 47, 86, 0.85), rgba(0, 47, 86, 0.75)), url('${heroImage}')`,
         backgroundSize: "cover",
