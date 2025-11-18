@@ -96,7 +96,7 @@ export const HeroSection = () => {
           </nav>
 
           <div
-            className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+            className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-6"
             role="list"
           >
             <article
