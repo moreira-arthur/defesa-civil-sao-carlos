@@ -55,7 +55,7 @@ export const AlertsSection = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div 
-                  className="bg-accent/50 rounded-lg p-6 text-center"
+                  className="bg-accent/30 rounded-lg p-6 text-center"
                   onFocus={handleFocus}
                   tabIndex={0}
                 >

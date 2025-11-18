@@ -58,7 +58,7 @@ export const AccessibilityToolbar = () => {
       <div className="relative">
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="mb-2 h-12 w-12 rounded-full bg-secondary hover:bg-primary/90 shadow-strong"
+          className="mb-2 h-12 w-12 rounded-full bg-secondary hover:bg-secondary/90 shadow-strong"
           size="icon"
           aria-label="Abrir ferramentas de acessibilidade"
         >
@@ -72,7 +72,7 @@ export const AccessibilityToolbar = () => {
       </div>
 
       {isOpen && (
-        <Card className="accessibility-toolbar p-4 w-80 max-w-[calc(100vw-2rem)] animate-fade-in-up">
+        <Card className="accessibility-toolbar p-4 w-80 max-w-[calc(100vw)] animate-fade-in-up">
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-heading text-lg font-semibold text-foreground">
               Acessibilidade

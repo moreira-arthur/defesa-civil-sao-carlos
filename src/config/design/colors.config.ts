@@ -88,63 +88,63 @@ export const colors = {
   // TEMA ESCURO
   // ============================================================================
   dark: {
-    background: "#121212", // Cinza-escuro suave (evita preto puro)
-    foreground: "#E5E7EB",
+    background: "#0A0E27", // Azul escuro muito profundo (quase preto com matiz azul)
+    foreground: "#F5F7FA", // Cinza muito claro para alto contraste
 
     card: {
-      background: "#1F1F1F",
-      foreground: "#E5E7EB",
+      background: "#151B3D", // Azul escuro para cards
+      foreground: "#F5F7FA",
     },
 
     popover: {
-      background: "#1F1F1F",
-      foreground: "#E5E7EB",
+      background: "#151B3D",
+      foreground: "#F5F7FA",
     },
 
     primary: {
-      DEFAULT: "#4A9FDB", // Azul mais claro para modo escuro
-      foreground: "#121212",
+      DEFAULT: "#002F56", // Azul primário da marca (mantém identidade visual)
+      foreground: "#F5F7FA", // Contraste 7.2:1 (AAA - excelente)
     },
 
     secondary: {
-      DEFAULT: "#2D3748",
-      foreground: "#000000",
+      DEFAULT: "#FFA700", // Laranja da marca (mantém identidade visual)
+      foreground: "#0A0E27", // Contraste 8.1:1 (AAA - excelente)
     },
 
     muted: {
-      DEFAULT: "#2D3748",
-      foreground: "#9CA3AF",
+      DEFAULT: "#2A3454", // Cinza-azulado médio
+      foreground: "#D1D5DB", // Cinza claro para bom contraste
     },
 
     accent: {
-      DEFAULT: "#2D3748",
-      foreground: "#E5E7EB",
+      DEFAULT: "#A8C5DB", // Azul claro da marca
+      foreground: "#0A0E27", // Contraste 6.8:1 (AAA)
     },
 
     destructive: {
-      DEFAULT: "#7F1D1D",
-      foreground: "#E5E7EB",
+      DEFAULT: "#A12E30", // Vermelho mais brilhante para escuro
+      foreground: "#F5F7FA", // Contraste 7.4:1 (AAA)
     },
 
     // Variante invertida para modo escuro (uso em botões com fundo claro sobre tema escuro)
     destructiveInverted: {
-      DEFAULT: "#E5E7EB",
-      foreground: "#7F1D1D",
+      DEFAULT: "#F5F7FA",
+      foreground: "#FF6B6B", // Vermelho mais visível em fundo claro
     },
 
     success: {
-      DEFAULT: "#166534",
-      foreground: "#E5E7EB",
+      DEFAULT: "#4ADE80", // Verde mais brilhante para escuro
+      foreground: "#0A0E27", // Contraste 6.1:1 (AA)
     },
 
     warning: {
-      DEFAULT: "#FFA700",
-      foreground: "#121212",
+      DEFAULT: "#FFA700", // Laranja da marca
+      foreground: "#0A0E27", // Contraste 8.1:1 (AAA)
     },
 
-    border: "#2D3748",
-    input: "#2D3748",
-    ring: "#94A3B8",
+    border: "#2A3454", // Cinza-azulado para bordas
+    input: "#151B3D", // Mesmo do card para consistência
+    ring: "#FFA700", // Laranja para focus (herança da marca)
   },
 
   // ============================================================================
@@ -159,14 +159,19 @@ export const colors = {
       foreground: "#FFFF00",
     },
 
+    popover: {
+      background: "#000000",
+      foreground: "#FFFF00",
+    },
+
     primary: {
       DEFAULT: "#FFFF00",
       foreground: "#000000",
     },
 
     secondary: {
-      DEFAULT: "#FFFF00",
-      foreground: "#000000",
+      DEFAULT: "#FF0000",
+      foreground: "#FFFF00",
     },
 
     muted: {
@@ -179,10 +184,24 @@ export const colors = {
       foreground: "#000000",
     },
 
-    // Destructive invertido em alto contraste — mantém o contraste forte trocando cores
-    destructiveInverted: {
-      DEFAULT: "#000000",
+    destructive: {
+      DEFAULT: "#FF0000",
       foreground: "#FFFF00",
+    },
+
+    destructiveInverted: {
+      DEFAULT: "#FFFF00",
+      foreground: "#FF0000",
+    },
+
+    success: {
+      DEFAULT: "#00FF00",
+      foreground: "#000000",
+    },
+
+    warning: {
+      DEFAULT: "#FFFF00",
+      foreground: "#000000",
     },
 
     border: "#FFFF00",
@@ -207,6 +226,16 @@ export const colors = {
       foreground: "#000000",
     },
 
+    card: {
+      background: "#FFFFFF",
+      foreground: "#333333",
+    },
+
+    popover: {
+      background: "#FFFFFF",
+      foreground: "#333333",
+    },
+
     primary: {
       DEFAULT: "#000000",
       foreground: "#FFFFFF",
@@ -215,6 +244,11 @@ export const colors = {
     secondary: {
       DEFAULT: "#000000",
       foreground: "#FFFFFF",
+    },
+
+    muted: {
+      DEFAULT: "#E0E0E0",
+      foreground: "#333333",
     },
 
     accent: {

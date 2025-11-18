@@ -26,7 +26,7 @@ export const HeroSection = () => {
       id="home"
       className="relative min-h-[calc(100vh-4rem)] pt-16 flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground"
       style={{
-        backgroundImage: `linear-gradient(135deg, rgba(0, 47, 86, 0.85), rgba(0, 47, 86, 0.75)), url('${heroImage}')`,
+        backgroundImage: `linear-gradient(135deg, hsl(var(--primary) / 0.85), hsl(var(--primary) / 0.75)), url('${heroImage}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -34,7 +34,7 @@ export const HeroSection = () => {
       role="region"
       aria-label="Seção principal"
     >
-      <div className="absolute inset-0 bg-primary/70" aria-hidden="true"></div>
+      <div className="absolute inset-0 bg-primary/30" aria-hidden="true"></div>
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         <article className="animate-fade-in-up">
