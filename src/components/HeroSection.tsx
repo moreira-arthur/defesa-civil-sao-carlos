@@ -146,14 +146,6 @@ export const HeroSection = () => {
           </div>
         </article>
       </div>
-
-      {/* Scroll indicator */}
-      <div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-        aria-hidden="true"
-      >
-        <div className="h-8 w-px bg-primary-foreground/50"></div>
-      </div>
     </section>
   );
 };
