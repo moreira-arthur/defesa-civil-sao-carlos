@@ -35,6 +35,10 @@
     --muted-foreground: 0 0% 45%;
   --accent: 208 60% 85%;
   --accent-foreground: 208 100% 17%;
+  /* Operation colors (theme-aware): used by cards like "Operação Verão" */
+  --operation-summer: 217 92% 60%; /* default -> similar to tailwind blue-500 */
+  /* Operation dry (Estiagem) - default: similar to tailwind orange-500 */
+  --operation-dry: 24 97% 53%;
   --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 100%;
   /* Inverted destructive: usado para botões com fundo claro e texto em cor destructive */
@@ -52,6 +56,7 @@
     --font-size-multiplier: 1;
     --line-height-multiplier: 1.6;
     
+    --summer-operation: 60 100% 100%;
     /* Border Radius */
     --radius: 0.5rem;
   }
@@ -78,6 +83,10 @@
     --border: 60 100% 100%;
     --input: 0 0% 10%;
     --ring: 60 100% 50%;
+    /* High contrast summer operation: vivid blue */
+    --operation-summer: 217 92% 60%;
+    /* High contrast dry operation: vivid orange */
+    --operation-dry: 24 97% 53%;
   }
 
   /* Monochrome Theme */
@@ -96,9 +105,15 @@
     --accent-foreground: 0 0% 20%;
     --border: 0 0% 80%;
     --ring: 0 0% 60%;
+    --destructive: 0 0% 20%;
     /* Monochrome inverted destructive */
     --destructive-inverted: 0 0% 100%;
     --destructive-inverted-foreground: 0 0% 20%;
+   /* In monochrome, prefer the brand secondary (so emergency/summer can stay visible)
+     this references --cd-orange-secondary which is also adjusted for monochrome. */
+   --operation-summer: var(--cd-orange-secondary);
+  /* Monochrome: dry operation follows brand secondary for visibility */
+  --operation-dry: var(--cd-orange-secondary);
   }
 
   /* Dark Theme */
@@ -138,6 +153,10 @@
     --border: 215 14% 22%;
     --input: 215 14% 22%;
     --ring: 220 9% 58%;
+    /* Dark theme summer operation: slightly brighter blue for contrast */
+    --operation-summer: 207 100% 62%;
+    /* Dark theme dry operation: slightly muted orange for contrast */
+    --operation-dry: 24 100% 56%;
   }
 }
 
@@ -210,9 +229,11 @@
 
   /* Custom utility classes */
   .emergency-pulse {
-    /* background used by the pulse animation — defaults to the destructive color
-       but can be overridden (see selector for bg-destructive-inverted below) */
-    --emergency-bg: var(--destructive);
+   /* background used by the pulse animation — defaults to the current brand
+     color (cd-orange-secondary) so the emergency banner keeps the app's
+     color even when themes (ex.: monochrome) change other variables.
+     Can still be overridden (see selector for bg-destructive-inverted below) */
+   --emergency-bg: var(--cd-orange-secondary);
     animation: emergencyPulse 2s infinite;
   }
 

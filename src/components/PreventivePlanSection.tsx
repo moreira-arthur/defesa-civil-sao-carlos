@@ -15,7 +15,7 @@ export const PreventivePlanSection = () => {
       title: 'Operação Verão',
       period: 'Dezembro a Março',
       description: 'Monitoramento intensivo durante o período chuvoso, com equipes em alerta 24h para atender ocorrências de alagamentos, deslizamentos e tempestades.',
-      color: 'bg-blue-500',
+  color: 'bg-[hsl(var(--operation-summer))]',
       actions: [
         'Monitoramento meteorológico constante',
         'Equipes de plantão 24 horas',
@@ -28,7 +28,7 @@ export const PreventivePlanSection = () => {
       title: 'Operação Estiagem',
       period: 'Maio a Setembro',
       description: 'Ações preventivas durante o período seco, focando no combate a queimadas, controle de qualidade do ar e gestão de recursos hídricos.',
-      color: 'bg-orange-500',
+  color: 'bg-[hsl(var(--operation-dry))]',
       actions: [
         'Monitoramento de focos de calor',
         'Campanhas educativas sobre queimadas',

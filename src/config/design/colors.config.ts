@@ -195,46 +195,51 @@ export const colors = {
   // ============================================================================
   monochrome: {
     background: "#FFFFFF",
-    foreground: "#333333",
+    foreground: "#000000",
+
+    card: {
+      background: "#FFFFFF",
+      foreground: "#000000",
+    },
+
+    popover: {
+      background: "#FFFFFF",
+      foreground: "#000000",
+    },
 
     primary: {
-      DEFAULT: "#333333",
+      DEFAULT: "#000000",
       foreground: "#FFFFFF",
     },
 
     secondary: {
-      DEFAULT: "#999999",
+      DEFAULT: "#000000",
       foreground: "#FFFFFF",
     },
 
     accent: {
-      DEFAULT: "#CCCCCC",
-      foreground: "#333333",
+      DEFAULT: "#000000",
+      foreground: "#FFFFFF",
     },
 
-    border: "#CCCCCC",
-    ring: "#999999",
-  },
+    destructive: {
+      DEFAULT: "#000000",
+      foreground: "#FFFFFF",
+    },
 
-  // Variante invertida para o tema monocromático
-  // Útil quando for necessário um botão com aparência invertida em layouts monocromáticos
-  monochromeInverted: {
-    background: "#333333",
-    foreground: "#FFFFFF",
-    primary: {
+    droughtOperation:{
+
+    },
+
+    // Nome esperado pelo applyTheme e por padrões de variáveis (destructiveInverted)
+    destructiveInverted: {
       DEFAULT: "#FFFFFF",
-      foreground: "#333333",
+      foreground: "#000000",
     },
-    secondary: {
-      DEFAULT: "#666666",
-      foreground: "#FFFFFF",
-    },
-    accent: {
-      DEFAULT: "#999999",
-      foreground: "#333333",
-    },
-    border: "#333333",
-    ring: "#FFFFFF",
+
+    border: "#000000",
+    input: "#000000",
+    ring: "#000000",
   },
 };
 
