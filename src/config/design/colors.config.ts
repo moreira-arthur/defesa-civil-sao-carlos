@@ -57,6 +57,8 @@ export const colors = {
       foreground: "#002F56",
     },
 
+    accentForeground: "#002F56", // Fallback for accent-foreground variable
+
     destructive: {
       DEFAULT: "#A12E30",
       foreground: "#FFFFFF",
@@ -78,6 +80,9 @@ export const colors = {
       DEFAULT: "#FFA700", // CD Orange
       foreground: "#FFFFFF",
     },
+
+    operationSummer: "#4A9EF5", // Blue-500 like color for summer operations
+    operationDry: "#FF8533", // Orange-500 like color for drought/dry operations
 
     border: "#E5E7EB",
     input: "#F3F4F6",
@@ -121,6 +126,8 @@ export const colors = {
       foreground: "#0A0E27", // Contraste 6.8:1 (AAA)
     },
 
+    accentForeground: "#0A0E27", // Fallback for accent-foreground variable
+
     destructive: {
       DEFAULT: "#A12E30", // Vermelho mais brilhante para escuro
       foreground: "#F5F7FA", // Contraste 7.4:1 (AAA)
@@ -141,6 +148,9 @@ export const colors = {
       DEFAULT: "#FFA700", // Laranja da marca
       foreground: "#0A0E27", // Contraste 8.1:1 (AAA)
     },
+
+    operationSummer: "#4A9EF5", // Blue-500 like color for summer operations
+    operationDry: "#FF8533", // Orange-500 like color for drought/dry operations
 
     border: "#2A3454", // Cinza-azulado para bordas
     input: "#151B3D", // Mesmo do card para consistência
@@ -184,6 +194,8 @@ export const colors = {
       foreground: "#000000",
     },
 
+    accentForeground: "#000000", // Fallback for accent-foreground variable
+
     destructive: {
       DEFAULT: "#FF0000",
       foreground: "#FFFF00",
@@ -203,6 +215,9 @@ export const colors = {
       DEFAULT: "#FFFF00",
       foreground: "#000000",
     },
+
+    operationSummer: "#4A9EF5", // Blue-500 like color for summer operations
+    operationDry: "#FF8533", // Orange-500 like color for drought/dry operations
 
     border: "#FFFF00",
     input: "#1A1A1A",
@@ -226,23 +241,13 @@ export const colors = {
       foreground: "#000000",
     },
 
-    card: {
-      background: "#FFFFFF",
-      foreground: "#333333",
-    },
-
-    popover: {
-      background: "#FFFFFF",
-      foreground: "#333333",
-    },
-
     primary: {
       DEFAULT: "#000000",
       foreground: "#FFFFFF",
     },
 
     secondary: {
-      DEFAULT: "#000000",
+      DEFAULT: "#E0E0E0",
       foreground: "#FFFFFF",
     },
 
@@ -256,13 +261,11 @@ export const colors = {
       foreground: "#FFFFFF",
     },
 
+    accentForeground: "#FFFFFF", // Fallback for accent-foreground variable
+
     destructive: {
       DEFAULT: "#000000",
       foreground: "#FFFFFF",
-    },
-
-    droughtOperation:{
-
     },
 
     // Nome esperado pelo applyTheme e por padrões de variáveis (destructiveInverted)
@@ -270,6 +273,9 @@ export const colors = {
       DEFAULT: "#FFFFFF",
       foreground: "#000000",
     },
+
+    operationSummer: "#666666", // Grey tone for summer operations in monochrome
+    operationDry: "#999999", // Lighter grey tone for drought/dry operations in monochrome
 
     border: "#000000",
     input: "#000000",

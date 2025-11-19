@@ -7,7 +7,6 @@ import {
   Plus,
   Palette,
   RotateCcw,
-  Moon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -21,6 +20,7 @@ export const AccessibilityToolbar = () => {
   const lineHeights = ["tight", "normal", "relaxed", "loose"] as const;
   const themes = [
     { key: "light" as const, label: "Padrão" },
+    { key: "dark" as const, label: "Escuro" },
     { key: "highContrast" as const, label: "Alto Contraste" },
     { key: "monochrome" as const, label: "Monocromático" },
   ];
@@ -149,28 +149,11 @@ export const AccessibilityToolbar = () => {
             </div>
           </div>
 
-          {/* Dark Mode Toggle */}
-          <div className="mb-4">
-            <Button
-              variant={settings.theme === "dark" ? "default" : "outline"}
-              size="sm"
-              className="w-full justify-start"
-              onClick={() =>
-                updateSettings({
-                  theme: settings.theme === "dark" ? "light" : "dark",
-                })
-              }
-            >
-              <Moon className="h-4 w-4 mr-2" />
-              Tema Escuro
-            </Button>
-          </div>
-
           {/* Theme Selection */}
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2 text-foreground">
               <Palette className="inline h-4 w-4 mr-1" />
-              Outros Temas
+              Temas
             </label>
             <div className="space-y-1">
               {themes.map((theme) => (

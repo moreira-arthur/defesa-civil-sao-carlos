@@ -24,7 +24,7 @@ export const HeroSection = () => {
   return (
     <section
       id="home"
-      className="relative min-h-[calc(100vh-4rem)] pt-16 flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground"
+      className="relative min-h-[calc(100vh-4rem)] pt-16 flex items-center justify-center bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-primary-foreground hero-section"
       style={{
         backgroundImage: `linear-gradient(135deg, hsl(var(--primary) / 0.85), hsl(var(--primary) / 0.75)), url('${heroImage}')`,
         backgroundSize: "cover",
@@ -38,7 +38,7 @@ export const HeroSection = () => {
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         <article className="animate-fade-in-up">
-          <div className="flex justify-center mb-6" aria-hidden="true">
+          <div className="flex justify-center mb-6 pt-header-safe" aria-hidden="true">
             <img
               src={logo}
               alt="Defesa Civil"
