@@ -53,7 +53,7 @@ export const HeroSection = () => {
           >
             Defesa Civil de São Carlos
             <br />
-            <span className="text-secondary">Prevenção e Cuidado</span> ao seu
+            <span className="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight text-secondary">Prevenção e Cuidado</span> ao seu
             lado
           </h1>
 

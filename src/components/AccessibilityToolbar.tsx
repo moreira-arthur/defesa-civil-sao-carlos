@@ -73,7 +73,7 @@ export const AccessibilityToolbar = () => {
 
       {isOpen && (
         <Card className="accessibility-toolbar p-4 w-80 max-w-[calc(100vw)] animate-fade-in-up">
-          <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center justify-between mb-4 gap-2 flex-wrap">
             <h3 className="font-heading text-lg font-semibold text-foreground">
               Acessibilidade
             </h3>
@@ -81,7 +81,7 @@ export const AccessibilityToolbar = () => {
               variant="ghost"
               size="sm"
               onClick={resetSettings}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground flex-shrink-0 whitespace-nowrap"
               aria-label="Restaurar configurações padrão"
             >
               <RotateCcw className="h-4 w-4 mr-1" />

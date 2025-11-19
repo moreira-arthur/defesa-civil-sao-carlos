@@ -161,6 +161,79 @@
     line-height: 1.2;
   }
 
+  /* Responsive heading sizes with proper hierarchy */
+  h1 {
+    font-size: calc(2.25rem * var(--font-size-multiplier));
+  }
+
+  h2 {
+    font-size: calc(1.875rem * var(--font-size-multiplier));
+  }
+
+  h3 {
+    font-size: calc(1.5rem * var(--font-size-multiplier));
+  }
+
+  h4 {
+    font-size: calc(1.25rem * var(--font-size-multiplier));
+  }
+
+  h5 {
+    font-size: calc(1.125rem * var(--font-size-multiplier));
+  }
+
+  h6 {
+    font-size: calc(1rem * var(--font-size-multiplier));
+  }
+
+  /* Responsive text sizes */
+  p, span, li, a, label, button {
+    font-size: calc(1rem * var(--font-size-multiplier));
+  }
+
+  /* Small text sizes */
+  .text-xs {
+    font-size: calc(0.75rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-sm {
+    font-size: calc(0.875rem * var(--font-size-multiplier)) !important;
+  }
+
+  /* Medium text sizes */
+  .text-base {
+    font-size: calc(1rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-lg {
+    font-size: calc(1.125rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-xl {
+    font-size: calc(1.25rem * var(--font-size-multiplier)) !important;
+  }
+
+  /* Large text sizes */
+  .text-2xl {
+    font-size: calc(1.5rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-3xl {
+    font-size: calc(1.875rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-4xl {
+    font-size: calc(2.25rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-5xl {
+    font-size: calc(3rem * var(--font-size-multiplier)) !important;
+  }
+
+  .text-6xl {
+    font-size: calc(3.75rem * var(--font-size-multiplier)) !important;
+  }
+
   /* Dyslexia-friendly font option */
   .dyslexia-friendly {
     font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
@@ -226,6 +299,22 @@
   .w-icon {
     height: calc(1.25rem * var(--font-size-multiplier));
     width: calc(1.25rem * var(--font-size-multiplier));
+  }
+
+  /* Button text scaling */
+  .button-text {
+    font-size: calc(0.875rem * var(--font-size-multiplier));
+  }
+
+  /* SVG icons in buttons scale with font size */
+  button svg {
+    height: calc(1rem * var(--font-size-multiplier));
+    width: calc(1rem * var(--font-size-multiplier));
+  }
+
+  /* Label text scaling */
+  .label-text {
+    font-size: calc(0.875rem * var(--font-size-multiplier));
   }
 
   .text-accessible {
@@ -297,16 +386,14 @@
     border: 1px solid hsl(var(--border));
     box-shadow: var(--shadow-medium);
     border-radius: var(--radius);
+    max-width: calc(100vw - 2rem);
+    overflow-y: auto;
+    max-height: calc(90vh - 4rem);
   }
 
   /* Utility classes para acessibilidade */
   .text-accessible {
     font-size: calc(1rem * var(--font-size-multiplier));
-    line-height: var(--line-height-multiplier);
-  }
-  
-  h1, h2, h3, h4, h5, h6, p, li, a, button, label, span {
-    font-size: calc(1em * var(--font-size-multiplier));
     line-height: var(--line-height-multiplier);
   }
 }
