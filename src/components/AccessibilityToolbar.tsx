@@ -7,7 +7,6 @@ import {
   Plus,
   Palette,
   RotateCcw,
-  Moon,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -21,6 +20,7 @@ export const AccessibilityToolbar = () => {
   const lineHeights = ["tight", "normal", "relaxed", "loose"] as const;
   const themes = [
     { key: "light" as const, label: "Padrão" },
+    { key: "dark" as const, label: "Escuro" },
     { key: "highContrast" as const, label: "Alto Contraste" },
     { key: "monochrome" as const, label: "Monocromático" },
   ];
@@ -58,7 +58,7 @@ export const AccessibilityToolbar = () => {
       <div className="relative">
         <Button
           onClick={() => setIsOpen(!isOpen)}
-          className="mb-2 h-12 w-12 rounded-full bg-secondary hover:bg-primary/90 shadow-strong"
+          className="mb-2 h-12 w-12 rounded-full bg-secondary hover:bg-secondary/90 shadow-strong"
           size="icon"
           aria-label="Abrir ferramentas de acessibilidade"
         >
@@ -72,8 +72,8 @@ export const AccessibilityToolbar = () => {
       </div>
 
       {isOpen && (
-        <Card className="accessibility-toolbar p-4 w-80 max-w-[calc(100vw-2rem)] animate-fade-in-up">
-          <div className="flex items-center justify-between mb-4">
+        <Card className="accessibility-toolbar p-4 w-80 max-w-[calc(100vw)] animate-fade-in-up">
+          <div className="flex items-center justify-between mb-4 gap-2 flex-wrap">
             <h3 className="font-heading text-lg font-semibold text-foreground">
               Acessibilidade
             </h3>
@@ -81,7 +81,7 @@ export const AccessibilityToolbar = () => {
               variant="ghost"
               size="sm"
               onClick={resetSettings}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground flex-shrink-0 whitespace-nowrap"
               aria-label="Restaurar configurações padrão"
             >
               <RotateCcw className="h-4 w-4 mr-1" />
@@ -149,28 +149,11 @@ export const AccessibilityToolbar = () => {
             </div>
           </div>
 
-          {/* Dark Mode Toggle */}
-          <div className="mb-4">
-            <Button
-              variant={settings.theme === "dark" ? "default" : "outline"}
-              size="sm"
-              className="w-full justify-start"
-              onClick={() =>
-                updateSettings({
-                  theme: settings.theme === "dark" ? "light" : "dark",
-                })
-              }
-            >
-              <Moon className="h-4 w-4 mr-2" />
-              Tema Escuro
-            </Button>
-          </div>
-
           {/* Theme Selection */}
           <div className="mb-4">
             <label className="block text-sm font-medium mb-2 text-foreground">
               <Palette className="inline h-4 w-4 mr-1" />
-              Outros Temas
+              Temas
             </label>
             <div className="space-y-1">
               {themes.map((theme) => (

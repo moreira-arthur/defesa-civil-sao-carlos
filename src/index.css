@@ -5,162 +5,144 @@
 /**
  * Civil Defense São Carlos - Design System
  * 
- * IMPORTANTE: Este arquivo usa as variáveis CSS para aplicar o tema dinamicamente.
- * Para modificar cores, fontes e estilos, edite: src/config/theme.config.ts
+ * IMPORTANTE: Este arquivo é gerado automaticamente a partir de:
+ * src/config/design/colors.config.ts
  * 
- * As variáveis CSS abaixo são necessárias para permitir a troca dinâmica de temas
+ * Para modificar cores, edite colors.config.ts e execute:
+ * npm run generate:colors
+ * 
+ * As variáveis CSS abaixo permitem a troca dinâmica de temas
  * (claro, escuro, alto contraste, monocromático) via JavaScript.
  */
 
 @layer base {
   :root {
-    /* Cores da Marca (Defesa Civil) */
-    --cd-blue-primary: 208 100% 17%;
-    --cd-orange-secondary: 38 100% 50%;
-    --cd-blue-light: 208 60% 85%;
-    --cd-orange-light: 38 60% 85%;
-    
-    /* Tema Padrão (Light Mode) - Valores iniciais em HSL */
     --background: 0 0% 100%;
     --foreground: 0 0% 20%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 20%;
-    --primary: 208 100% 17%;
+    --primary: 207 100% 17%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 38 100% 50%;
+    --secondary: 39 100% 50%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-  --accent: 208 60% 85%;
-  --accent-foreground: 208 100% 17%;
-  /* Operation colors (theme-aware): used by cards like "Operação Verão" */
-  --operation-summer: 217 92% 60%; /* default -> similar to tailwind blue-500 */
-  /* Operation dry (Estiagem) - default: similar to tailwind orange-500 */
-  --operation-dry: 24 97% 53%;
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 0 0% 100%;
-  /* Inverted destructive: usado para botões com fundo claro e texto em cor destructive */
-  --destructive-inverted: 0 0% 100%;
-  --destructive-inverted-foreground: 0 72% 51%;
+    --muted: 216 33% 97%;
+    --muted-foreground: 0 NaN% NaN%;
+    --accent: 206 41% 76%;
+    --accent-foreground: 207 100% 17%;
+    --accent-foreground: 207 100% 17%;
+    --destructive: 359 56% 41%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-inverted: 0 0% 100%;
+    --destructive-inverted-foreground: 359 56% 41%;
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
-    --warning: 38 100% 50%;
+    --warning: 39 100% 50%;
     --warning-foreground: 0 0% 100%;
+    --operation-summer: 211 90% 63%;
+    --operation-dry: 24 100% 60%;
     --border: 220 13% 91%;
-    --input: 220 13% 95%;
-    --ring: 38 100% 50%;
-    
-    /* Multiplicadores de Acessibilidade */
+    --input: 220 14% 96%;
+    --ring: 39 100% 50%;
+  }
+
+  .dark {
+    --background: 232 59% 10%;
+    --foreground: 216 33% 97%;
+    --card: 231 49% 16%;
+    --card-foreground: 216 33% 97%;
+    --popover: 231 49% 16%;
+    --popover-foreground: 216 33% 97%;
+    --primary: 207 100% 17%;
+    --primary-foreground: 216 33% 97%;
+    --secondary: 39 100% 50%;
+    --secondary-foreground: 232 59% 10%;
+    --muted: 226 33% 25%;
+    --muted-foreground: 216 12% 84%;
+    --accent: 206 41% 76%;
+    --accent-foreground: 232 59% 10%;
+    --accent-foreground: 232 59% 10%;
+    --destructive: 359 56% 41%;
+    --destructive-foreground: 216 33% 97%;
+    --destructive-inverted: 216 33% 97%;
+    --destructive-inverted-foreground: 0 100% 71%;
+    --success: 142 69% 58%;
+    --success-foreground: 232 59% 10%;
+    --warning: 39 100% 50%;
+    --warning-foreground: 232 59% 10%;
+    --operation-summer: 211 90% 63%;
+    --operation-dry: 24 100% 60%;
+    --border: 226 33% 25%;
+    --input: 231 49% 16%;
+    --ring: 39 100% 50%;
+  }
+
+  .high-contrast {
+    --background: 0 0% 0%;
+    --foreground: 60 100% 50%;
+    --card: 0 0% 0%;
+    --card-foreground: 60 100% 50%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 60 100% 50%;
+    --primary: 60 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 100% 50%;
+    --secondary-foreground: 60 100% 50%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 60 100% 80%;
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 60 100% 50%;
+    --destructive-inverted: 60 100% 50%;
+    --destructive-inverted-foreground: 0 100% 50%;
+    --success: 120 100% 50%;
+    --success-foreground: 0 0% 0%;
+    --warning: 60 100% 50%;
+    --warning-foreground: 0 0% 0%;
+    --operation-summer: 211 90% 63%;
+    --operation-dry: 24 100% 60%;
+    --border: 60 100% 50%;
+    --input: 0 0% 10%;
+    --ring: 60 100% 50%;
+  }
+
+  .monochrome {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 88%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 88%;
+    --muted-foreground: 0 0% 20%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 0% 0%;
+    --destructive-foreground: 0 0% 100%;
+    --destructive-inverted: 0 0% 100%;
+    --destructive-inverted-foreground: 0 0% 0%;
+    --operation-summer: 0 0% 40%;
+    --operation-dry: 0 0% 60%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
+  }
+
+  /* Multiplicadores de Acessibilidade */
+  :root {
     --font-size-multiplier: 1;
     --line-height-multiplier: 1.6;
-    
-    --summer-operation: 60 100% 100%;
-    /* Border Radius */
     --radius: 0.5rem;
   }
 
-  /* High Contrast Theme */
-  .high-contrast {
-    --background: 0 0% 0%;
-    --foreground: 60 100% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 60 100% 100%;
-    --primary: 60 100% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 60 100% 50%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 60 100% 80%;
-  --accent: 60 100% 50%;
-  --accent-foreground: 0 0% 0%;
-  --destructive: 60 100% 50%;
-  --destructive-foreground: 0 0% 0%;
-  /* Inverted for high contrast */
-  --destructive-inverted: 0 0% 0%;
-  --destructive-inverted-foreground: 60 100% 50%;
-    --border: 60 100% 100%;
-    --input: 0 0% 10%;
-    --ring: 60 100% 50%;
-    /* High contrast summer operation: vivid blue */
-    --operation-summer: 217 92% 60%;
-    /* High contrast dry operation: vivid orange */
-    --operation-dry: 24 97% 53%;
-  }
-
-  /* Monochrome Theme */
-  .monochrome {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 20%;
-    --cd-blue-primary: 0 0% 20%;
-    --cd-orange-secondary: 0 0% 60%;
-    --cd-blue-light: 0 0% 80%;
-    --cd-orange-light: 0 0% 70%;
-    --primary: 0 0% 20%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 60%;
-    --secondary-foreground: 0 0% 100%;
-    --accent: 0 0% 80%;
-    --accent-foreground: 0 0% 20%;
-    --border: 0 0% 80%;
-    --ring: 0 0% 60%;
-    --destructive: 0 0% 20%;
-    /* Monochrome inverted destructive */
-    --destructive-inverted: 0 0% 100%;
-    --destructive-inverted-foreground: 0 0% 20%;
-   /* In monochrome, prefer the brand secondary (so emergency/summer can stay visible)
-     this references --cd-orange-secondary which is also adjusted for monochrome. */
-   --operation-summer: var(--cd-orange-secondary);
-  /* Monochrome: dry operation follows brand secondary for visibility */
-  --operation-dry: var(--cd-orange-secondary);
-  }
-
-  /* Dark Theme */
-  .dark {
-    --background: 0 0% 7%;
-    --foreground: 220 13% 91%;
-
-    --card: 0 0% 12%;
-    --card-foreground: 220 13% 91%;
-
-    --popover: 0 0% 12%;
-    --popover-foreground: 220 13% 91%;
-
-    --primary: 207 100% 62%;
-    --primary-foreground: 0 0% 7%;
-
-    --secondary: 215 14% 22%;
-    --secondary-foreground: 220 13% 91%;
-
-    --muted: 215 14% 22%;
-    --muted-foreground: 220 9% 62%;
-
-    --accent: 215 14% 22%;
-    --accent-foreground: 220 13% 91%;
-
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 220 13% 91%;
-  --destructive-inverted: 220 13% 91%;
-  --destructive-inverted-foreground: 0 63% 31%;
-
-    --success: 142 71% 25%;
-    --success-foreground: 220 13% 91%;
-
-    --warning: 38 100% 50%;
-    --warning-foreground: 0 0% 7%;
-
-    --border: 215 14% 22%;
-    --input: 215 14% 22%;
-    --ring: 220 9% 58%;
-    /* Dark theme summer operation: slightly brighter blue for contrast */
-    --operation-summer: 207 100% 62%;
-    /* Dark theme dry operation: slightly muted orange for contrast */
-    --operation-dry: 24 100% 56%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
@@ -179,6 +161,96 @@
     line-height: 1.2;
   }
 
+  /* Responsive heading sizes with proper hierarchy */
+  h1 {
+    font-size: calc(2.25rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  h2 {
+    font-size: calc(1.875rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  h3 {
+    font-size: calc(1.5rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  h4 {
+    font-size: calc(1.25rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  h5 {
+    font-size: calc(1.125rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  h6 {
+    font-size: calc(1rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  /* Responsive text sizes */
+  p, span, li, a, label, button {
+    font-size: calc(1rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  /* Small text sizes */
+  .text-xs {
+    font-size: calc(0.75rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-sm {
+    font-size: calc(0.875rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  /* Medium text sizes */
+  .text-base {
+    font-size: calc(1rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-lg {
+    font-size: calc(1.125rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-xl {
+    font-size: calc(1.25rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  /* Large text sizes */
+  .text-2xl {
+    font-size: calc(1.5rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-3xl {
+    font-size: calc(1.875rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-4xl {
+    font-size: calc(2.25rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-5xl {
+    font-size: calc(3rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-6xl {
+    font-size: calc(3.75rem * var(--font-size-multiplier)) !important;
+    line-height: var(--line-height-multiplier);
+  }
+
   /* Dyslexia-friendly font option */
   .dyslexia-friendly {
     font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
@@ -186,7 +258,7 @@
 
   /* Focus styles for accessibility */
   :focus-visible {
-    outline: 2px solid hsl(var(--focus-ring));
+    outline: 2px solid hsl(var(--primary));
     outline-offset: 2px;
     border-radius: 0.25rem;
   }
@@ -214,6 +286,71 @@
     scroll-behavior: smooth;
   }
 
+  /* Header responsive to font size */
+  header {
+    top: 0;
+  }
+
+  header > div > div {
+    padding-top: calc(0.75rem * var(--font-size-multiplier));
+    padding-bottom: calc(0.75rem * var(--font-size-multiplier));
+    gap: calc(1rem * var(--font-size-multiplier));
+  }
+
+  @media (min-width: 768px) {
+    header > div > div {
+      padding-top: calc(1rem * var(--font-size-multiplier));
+      padding-bottom: calc(1rem * var(--font-size-multiplier));
+    }
+  }
+
+  /* Ensure navigation buttons wrap properly on smaller screens */
+  @media (max-width: 1024px) {
+    header nav {
+      gap: calc(0.5rem * var(--font-size-multiplier));
+    }
+  }
+
+  /* Responsive icon and text sizing */
+  .h-icon,
+  .w-icon {
+    height: calc(1.25rem * var(--font-size-multiplier));
+    width: calc(1.25rem * var(--font-size-multiplier));
+  }
+
+  /* Button text scaling */
+  .button-text {
+    font-size: calc(0.875rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  /* SVG icons in buttons scale with font size */
+  button svg {
+    height: calc(1rem * var(--font-size-multiplier));
+    width: calc(1rem * var(--font-size-multiplier));
+  }
+
+  /* Label text scaling */
+  .label-text {
+    font-size: calc(0.875rem * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  .text-accessible {
+    font-size: calc(1em * var(--font-size-multiplier));
+    line-height: var(--line-height-multiplier);
+  }
+
+  /* Hero section responsive padding to prevent navbar overlap */
+  .hero-section {
+    padding-top: calc(4rem + (1rem * var(--font-size-multiplier)));
+  }
+
+  /* Safe area padding for header overlap */
+  .pt-header-safe {
+    padding-top: calc(2rem + (0.5rem * var(--font-size-multiplier)));
+  }
+
   /* Animation classes */
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out forwards;
@@ -229,11 +366,7 @@
 
   /* Custom utility classes */
   .emergency-pulse {
-   /* background used by the pulse animation — defaults to the current brand
-     color (cd-orange-secondary) so the emergency banner keeps the app's
-     color even when themes (ex.: monochrome) change other variables.
-     Can still be overridden (see selector for bg-destructive-inverted below) */
-   --emergency-bg: var(--cd-orange-secondary);
+    --emergency-bg: var(--destructive);
     animation: emergencyPulse 2s infinite;
   }
 
@@ -248,8 +381,6 @@
     }
   }
 
-  /* When the pulse is applied to an inverted-destructive button, use the
-     destructive-inverted variables so the animation doesn't flip the colors. */
   .bg-destructive-inverted.emergency-pulse {
     --emergency-bg: var(--destructive-inverted);
   }
@@ -274,16 +405,14 @@
     border: 1px solid hsl(var(--border));
     box-shadow: var(--shadow-medium);
     border-radius: var(--radius);
+    max-width: calc(100vw - 2rem);
+    overflow-y: auto;
+    max-height: calc(90vh - 4rem);
   }
 
   /* Utility classes para acessibilidade */
   .text-accessible {
     font-size: calc(1rem * var(--font-size-multiplier));
-    line-height: var(--line-height-multiplier);
-  }
-  
-  h1, h2, h3, h4, h5, h6, p, li, a, button, label, span {
-    font-size: calc(1em * var(--font-size-multiplier));
     line-height: var(--line-height-multiplier);
   }
 }

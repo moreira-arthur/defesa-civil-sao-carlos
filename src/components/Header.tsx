@@ -43,9 +43,9 @@ export const Header = () => {
       role="banner"
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 py-3 md:py-4 min-h-max">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 flex-shrink-0 min-w-0">
             <div className="w-10 h-10 rounded flex items-center justify-center" aria-hidden="true">
               <img src={logo} alt="Defesa Civil" className="h-10 w-10` object-contain" />
             </div>
@@ -61,13 +61,13 @@ export const Header = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6" role="navigation" aria-label="Navegação principal">
+          <nav className="hidden md:flex items-center justify-center space-x-2 lg:space-x-6 col-span-1" aria-label="Navegação principal">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href, item.label)}
                 onFocus={handleFocus}
-                className="text-foreground hover:text-primary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary rounded px-2 py-1 min-h-[44px]"
+                className="text-foreground hover:text-primary transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-secondary rounded px-1 lg:px-2 py-1 text-accessible whitespace-nowrap"
                 aria-label={`Navegar para ${item.label}`}
               >
                 {item.label}
@@ -76,10 +76,10 @@ export const Header = () => {
           </nav>
 
           {/* Emergency Button */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center justify-end space-x-3 flex-shrink-0">
             <Button
               variant="destructive"
-              className="emergency-pulse hidden sm:flex items-center gap-2 min-h-[44px]"
+              className="emergency-pulse hidden sm:flex items-center gap-2"
               onFocus={handleFocus}
               onClick={() => {
                 speakText('Discando emergência 199');
@@ -87,15 +87,15 @@ export const Header = () => {
               }}
               aria-label="Ligar para emergência 199"
             >
-              <Phone className="h-4 w-4" />
-              <span className="font-semibold">199</span>
+              <Phone className="h-icon w-icon" />
+              <span className="font-semibold text-accessible">199</span>
             </Button>
 
             {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden min-h-[44px] min-w-[44px]"
+              className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               onFocus={handleFocus}
               aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -115,7 +115,7 @@ export const Header = () => {
                   key={item.href}
                   onClick={() => handleNavClick(item.href, item.label)}
                   onFocus={handleFocus}
-                  className="block w-full text-left px-3 py-2 text-foreground hover:bg-accent hover:text-accent-foreground rounded transition-colors font-medium min-h-[44px]"
+                  className="block w-full text-left px-3 py-2 text-foreground hover:bg-accent hover:text-accent-foreground rounded transition-colors font-medium text-accessible"
                   aria-label={`Navegar para ${item.label}`}
                 >
                   {item.label}
@@ -123,7 +123,7 @@ export const Header = () => {
               ))}
               <Button
                 variant="destructiveInverted"
-                className="w-full mt-4 emergency-pulse min-h-[44px]"
+                className="w-full mt-4 emergency-pulse"
                 onFocus={handleFocus}
                 onClick={() => {
                   speakText('Discando emergência 199');
@@ -131,8 +131,8 @@ export const Header = () => {
                 }}
                 aria-label="Ligar para emergência 199"
               >
-                <Phone className="h-4 w-4 mr-2" />
-                Emergência 1990000
+                <Phone className="h-icon w-icon mr-2" />
+                Emergência 199
               </Button>
             </nav>
           </aside>
