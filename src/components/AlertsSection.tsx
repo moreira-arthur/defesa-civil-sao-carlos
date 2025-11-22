@@ -20,7 +20,7 @@ export const AlertsSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 
+            <h2
               className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
               onFocus={handleFocus}
               tabIndex={0}
@@ -28,12 +28,12 @@ export const AlertsSection = () => {
               Mantenha-se Informado e Seguro
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
-            <p 
+            <p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
               onFocus={handleFocus}
               tabIndex={0}
             >
-              Receba alertas em tempo real e consulte nosso mapa de riscos para se manter 
+              Receba alertas em tempo real e consulte nosso mapa de riscos para se manter
               sempre preparado para situações de emergência.
             </p>
           </div>
@@ -45,7 +45,7 @@ export const AlertsSection = () => {
                 <div className="h-16 w-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="h-8 w-8 text-secondary-foreground" />
                 </div>
-                <CardTitle 
+                <CardTitle
                   className="font-heading text-xl text-foreground"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -54,7 +54,7 @@ export const AlertsSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div 
+                <div
                   className="bg-accent/30 rounded-lg p-6 text-center"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -70,8 +70,8 @@ export const AlertsSection = () => {
                     Serviço gratuito • Cancelamento a qualquer momento
                   </p>
                 </div>
-                
-                <Button 
+
+                <Button
                   className="w-full min-h-[48px] text-lg"
                   onClick={handleSMSRegister}
                   onFocus={handleFocus}
@@ -80,8 +80,8 @@ export const AlertsSection = () => {
                   <MessageSquare className="h-5 w-5 mr-2" />
                   Cadastrar Alertas SMS
                 </Button>
-                
-                <div 
+
+                <div
                   className="text-sm text-muted-foreground space-y-2"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -103,7 +103,7 @@ export const AlertsSection = () => {
                 <div className="h-16 w-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                   <Map className="h-8 w-8 text-primary-foreground" />
                 </div>
-                <CardTitle 
+                <CardTitle
                   className="font-heading text-xl text-foreground"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -112,18 +112,18 @@ export const AlertsSection = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <p 
+                <p
                   className="text-muted-foreground leading-relaxed"
                   onFocus={handleFocus}
                   tabIndex={0}
                 >
-                  Monitoramos continuamente as áreas de risco em São Carlos. Nossas equipes 
-                  estão preparadas para atuar preventivamente em situações de enchentes, 
+                  Monitoramos continuamente as áreas de risco em São Carlos. Nossas equipes
+                  estão preparadas para atuar preventivamente em situações de enchentes,
                   deslizamentos e outros eventos adversos.
                 </p>
-                
+
                 {/* Risk Map Placeholder */}
-                <div 
+                <div
                   className="bg-muted rounded-lg h-48 flex items-center justify-center border-2 border-dashed border-border"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -138,8 +138,8 @@ export const AlertsSection = () => {
                     <p className="text-sm text-muted-foreground">São Carlos - SP</p>
                   </div>
                 </div>
-                
-                <div 
+
+                <div
                   className="bg-accent/30 rounded-lg p-4 border-l-4 border-primary"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -151,7 +151,7 @@ export const AlertsSection = () => {
                         Monitoramento Ativo
                       </h4>
                       <p className="text-sm text-muted-foreground">
-                        Nossas equipes realizam vistorias regulares nas áreas de maior risco, 
+                        Nossas equipes realizam vistorias regulares nas áreas de maior risco,
                         especialmente durante períodos críticos como o verão chuvoso.
                       </p>
                     </div>
@@ -171,7 +171,7 @@ export const AlertsSection = () => {
                       Em caso de emergência
                     </h3>
                     <p className="opacity-90">
-                      Ligue imediatamente para a Defesa Civil
+                      Ligue imediatamente para a Proteção e Defesa Civil
                     </p>
                   </div>
                   <Button

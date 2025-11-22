@@ -36,10 +36,9 @@ export const Header = () => {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-card shadow-medium' : 'bg-card/95 backdrop-blur-sm'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrolled ? 'bg-card shadow-medium' : 'bg-card/95 backdrop-blur-sm'
+        }`}
       role="banner"
     >
       <div className="container mx-auto px-4">
@@ -47,16 +46,16 @@ export const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2 flex-shrink-0 min-w-0">
             <div className="w-10 h-10 rounded flex items-center justify-center" aria-hidden="true">
-              <img src={logo} alt="Defesa Civil" className="h-10 w-10` object-contain" />
+              <img src={logo} alt="Defesa Civil" className="h-10 w-10 object-contain" />
             </div>
-            <span 
-              className="font-heading font-semibold text-foreground cursor-pointer" 
-              onClick={() => speakText('Defesa Civil São Carlos')}
+            <span
+              className="font-heading font-semibold text-foreground cursor-pointer"
+              onClick={() => speakText('Proteção e Defesa Civil São Carlos')}
               tabIndex={settings.ttsEnabled ? 0 : -1}
               role="heading"
               aria-level={1}
             >
-              Defesa Civil São Carlos
+              Proteção e Defesa Civil São Carlos
             </span>
           </div>
 

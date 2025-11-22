@@ -30,7 +30,7 @@ export const Footer = () => {
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
-                    Defesa Civil
+                    Proteção e Defesa Civil
                   </h3>
                   <p
                     className="text-sm text-primary-foreground/80"
@@ -160,7 +160,7 @@ export const Footer = () => {
                   onFocus={handleFocus}
                   tabIndex={0}
                 >
-                  © {currentYear} Defesa Civil de São Carlos. Todos os direitos
+                  © {currentYear} Proteção e Defesa Civil de São Carlos. Todos os direitos
                   reservados.
                 </p>
                 <p
