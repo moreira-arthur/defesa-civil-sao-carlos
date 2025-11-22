@@ -50,7 +50,7 @@ export const ContactSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 
+            <h2
               className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
               onFocus={handleFocus}
               tabIndex={0}
@@ -58,23 +58,22 @@ export const ContactSection = () => {
               Entre em Contato
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
-            <p 
+            <p
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
               onFocus={handleFocus}
               tabIndex={0}
             >
-              Nossa equipe está sempre pronta para atender você. Em situações de emergência, 
+              Nossa equipe está sempre pronta para atender você. Em situações de emergência,
               ligue imediatamente para 199.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {contactInfo.map((contact, index) => (
-              <Card 
+              <Card
                 key={index}
-                className={`animate-fade-in-up shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer ${
-                  contact.variant === 'emergency' ? 'bg-destructive text-destructive-foreground' : ''
-                }`}
+                className={`animate-fade-in-up shadow-medium hover:shadow-strong transition-all duration-300 cursor-pointer ${contact.variant === 'emergency' ? 'bg-destructive text-destructive-foreground' : ''
+                  }`}
                 onClick={contact.action}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
@@ -87,35 +86,31 @@ export const ContactSection = () => {
                 aria-label={`${contact.title}: ${contact.value}`}
               >
                 <CardContent className="p-6 text-center">
-                  <div className={`h-12 w-12 rounded-lg flex items-center justify-center mx-auto mb-4 ${
-                    contact.variant === 'emergency' 
-                      ? 'bg-destructive-foreground text-destructive' 
+                  <div className={`h-12 w-12 rounded-lg flex items-center justify-center mx-auto mb-4 ${contact.variant === 'emergency'
+                      ? 'bg-destructive-foreground text-destructive'
                       : 'bg-primary text-primary-foreground'
-                  }`}>
+                    }`}>
                     <contact.icon className="h-6 w-6" />
                   </div>
-                  <h3 
-                    className={`font-heading text-lg font-semibold mb-2 ${
-                      contact.variant === 'emergency' ? 'text-destructive-foreground' : 'text-foreground'
-                    }`}
+                  <h3
+                    className={`font-heading text-lg font-semibold mb-2 ${contact.variant === 'emergency' ? 'text-destructive-foreground' : 'text-foreground'
+                      }`}
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
                     {contact.title}
                   </h3>
-                  <p 
-                    className={`text-xl font-bold mb-1 ${
-                      contact.variant === 'emergency' ? 'text-destructive-foreground' : 'text-foreground'
-                    }`}
+                  <p
+                    className={`text-xl font-bold mb-1 ${contact.variant === 'emergency' ? 'text-destructive-foreground' : 'text-foreground'
+                      }`}
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
                     {contact.value}
                   </p>
-                  <p 
-                    className={`text-sm ${
-                      contact.variant === 'emergency' ? 'text-destructive-foreground/80' : 'text-muted-foreground'
-                    }`}
+                  <p
+                    className={`text-sm ${contact.variant === 'emergency' ? 'text-destructive-foreground/80' : 'text-muted-foreground'
+                      }`}
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
@@ -133,7 +128,7 @@ export const ContactSection = () => {
                 <div className="h-16 w-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-4">
                   <User className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <CardTitle 
+                <CardTitle
                   className="font-heading text-xl text-foreground"
                   onFocus={handleFocus}
                   tabIndex={0}
@@ -143,24 +138,24 @@ export const ContactSection = () => {
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="text-center">
-                  <h3 
+                  <h3
                     className="font-heading text-lg font-semibold text-foreground mb-2"
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
-                    Coordenador: Pedro Caballero
+                    Diretor: Pedro Caballero
                   </h3>
-                  <p 
+                  <p
                     className="text-muted-foreground mb-6"
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
-                    Responsável pela coordenação geral das ações de Defesa Civil em São Carlos
+                    Responsável pela coordenação geral das ações de Proteção e Defesa Civil em São Carlos
                   </p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div 
+                  <div
                     className="bg-muted rounded-lg p-4"
                     onFocus={handleFocus}
                     tabIndex={0}
@@ -175,8 +170,8 @@ export const ContactSection = () => {
                       <li><strong>Segunda a sexta-feira</strong></li>
                     </ul>
                   </div>
-                  
-                  <div 
+
+                  <div
                     className="bg-muted rounded-lg p-4"
                     onFocus={handleFocus}
                     tabIndex={0}

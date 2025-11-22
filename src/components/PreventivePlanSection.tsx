@@ -15,7 +15,7 @@ export const PreventivePlanSection = () => {
       title: 'Operação Verão',
       period: 'Dezembro a Março',
       description: 'Monitoramento intensivo durante o período chuvoso, com equipes em alerta 24h para atender ocorrências de alagamentos, deslizamentos e tempestades.',
-  color: 'bg-[hsl(var(--operation-summer))]',
+      color: 'bg-[hsl(var(--operation-summer))]',
       actions: [
         'Monitoramento meteorológico constante',
         'Equipes de plantão 24 horas',
@@ -28,7 +28,7 @@ export const PreventivePlanSection = () => {
       title: 'Operação Estiagem',
       period: 'Maio a Setembro',
       description: 'Ações preventivas durante o período seco, focando no combate a queimadas, controle de qualidade do ar e gestão de recursos hídricos.',
-  color: 'bg-[hsl(var(--operation-dry))]',
+      color: 'bg-[hsl(var(--operation-dry))]',
       actions: [
         'Monitoramento de focos de calor',
         'Campanhas educativas sobre queimadas',
@@ -43,45 +43,44 @@ export const PreventivePlanSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 
+            <h2
               className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-6"
               onFocus={handleFocus}
               tabIndex={0}
             >
-              Plano Preventivo de Defesa Civil (PPDC)
+              Plano Preventivo de Proteção e Defesa Civil (PPDC)
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-8"></div>
-            <p 
+            <p
               className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed"
               onFocus={handleFocus}
               tabIndex={0}
             >
-              O PPDC estabelece os procedimentos e ações de resposta emergencial durante períodos 
-              críticos. O objetivo é minimizar danos e proteger vidas através de ações coordenadas 
+              O PPDC estabelece os procedimentos e ações de resposta emergencial durante períodos
+              críticos. O objetivo é minimizar danos e proteger vidas através de ações coordenadas
               e preventivas.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {operations.map((operation, index) => (
-              <Card 
-                key={index} 
-                className={`animate-fade-in-up shadow-medium hover:shadow-strong transition-all duration-300 ${
-                  index === 1 ? 'animate-slide-in-right' : ''
-                }`}
+              <Card
+                key={index}
+                className={`animate-fade-in-up shadow-medium hover:shadow-strong transition-all duration-300 ${index === 1 ? 'animate-slide-in-right' : ''
+                  }`}
               >
                 <CardHeader className="text-center pb-4">
                   <div className={`h-16 w-16 ${operation.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                     <operation.icon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle 
+                  <CardTitle
                     className="font-heading text-xl text-foreground"
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
                     {operation.title}
                   </CardTitle>
-                  <p 
+                  <p
                     className="text-sm text-muted-foreground font-medium"
                     onFocus={handleFocus}
                     tabIndex={0}
@@ -90,16 +89,16 @@ export const PreventivePlanSection = () => {
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <p 
+                  <p
                     className="text-muted-foreground leading-relaxed"
                     onFocus={handleFocus}
                     tabIndex={0}
                   >
                     {operation.description}
                   </p>
-                  
+
                   <div>
-                    <h4 
+                    <h4
                       className="font-semibold text-foreground mb-3"
                       onFocus={handleFocus}
                       tabIndex={0}
@@ -108,7 +107,7 @@ export const PreventivePlanSection = () => {
                     </h4>
                     <ul className="space-y-2">
                       {operation.actions.map((action, actionIndex) => (
-                        <li 
+                        <li
                           key={actionIndex}
                           className="flex items-start gap-2 text-sm text-muted-foreground"
                           onFocus={handleFocus}
@@ -134,24 +133,24 @@ export const PreventivePlanSection = () => {
                     <Umbrella className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <h3 
+                    <h3
                       className="font-heading text-xl font-semibold text-foreground mb-4"
                       onFocus={handleFocus}
                       tabIndex={0}
                     >
                       Coordenação Integrada
                     </h3>
-                    <p 
+                    <p
                       className="text-muted-foreground leading-relaxed mb-4"
                       onFocus={handleFocus}
                       tabIndex={0}
                     >
-                      O PPDC é executado em coordenação com diversos órgãos municipais, estaduais 
-                      e federais, incluindo Corpo de Bombeiros, Polícia Militar, SAAE, CPFL, e 
+                      O PPDC é executado em coordenação com diversos órgãos municipais, estaduais
+                      e federais, incluindo Corpo de Bombeiros, Polícia Militar, SAAE, CPFL, e
                       outros parceiros essenciais.
                     </p>
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div 
+                      <div
                         className="bg-card rounded-lg p-4"
                         onFocus={handleFocus}
                         tabIndex={0}
@@ -164,7 +163,7 @@ export const PreventivePlanSection = () => {
                           <li>• CPFL Energia</li>
                         </ul>
                       </div>
-                      <div 
+                      <div
                         className="bg-card rounded-lg p-4"
                         onFocus={handleFocus}
                         tabIndex={0}

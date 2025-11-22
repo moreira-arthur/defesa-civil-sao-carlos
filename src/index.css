@@ -252,7 +252,8 @@
   }
 
   /* Dyslexia-friendly font option */
-  .dyslexia-friendly {
+  .dyslexia-friendly,
+  .dyslexia-friendly * {
     font-family: 'OpenDyslexic', 'Comic Sans MS', cursive !important;
   }
 

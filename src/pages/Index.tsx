@@ -3,10 +3,11 @@ import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
 import { AboutSection } from '@/components/AboutSection';
 import { AlertsSection } from '@/components/AlertsSection';
+import { RainfallChart } from '@/components/RainfallChart';
+import { HistoricalFloods } from '@/components/HistoricalFloods';
 import { PreventivePlanSection } from '@/components/PreventivePlanSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import { AccessibilityToolbar } from '@/components/AccessibilityToolbar';
 import { useAccessibility } from '@/components/AccessibilityContext';
 
 const Index = () => {
@@ -54,11 +55,12 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <AlertsSection />
+        <RainfallChart />
+        <HistoricalFloods />
         <PreventivePlanSection />
         <ContactSection />
       </main>
       <Footer />
-      <AccessibilityToolbar />
     </div>
   );
 };
