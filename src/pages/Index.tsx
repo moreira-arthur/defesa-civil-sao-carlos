@@ -8,7 +8,6 @@ import { HistoricalFloods } from '@/components/HistoricalFloods';
 import { PreventivePlanSection } from '@/components/PreventivePlanSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import { AccessibilityToolbar } from '@/components/AccessibilityToolbar';
 import { useAccessibility } from '@/components/AccessibilityContext';
 
 const Index = () => {
@@ -62,7 +61,6 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
-      <AccessibilityToolbar />
     </div>
   );
 };

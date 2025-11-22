@@ -3,6 +3,7 @@ import { Menu, X, Phone } from 'lucide-react';
 import logo from '@/assets/logo-defesa-civil.png';
 import { Button } from '@/components/ui/button';
 import { useAccessibility } from './AccessibilityContext';
+import { AccessibilityToolbar } from './AccessibilityToolbar';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,9 +19,21 @@ export const Header = () => {
   }, []);
 
   const handleNavClick = (href: string, text: string) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-    setIsMenuOpen(false);
-    speakText(`Navegando para ${text}`);
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+      speakText(`Navegando para ${text}`);
+
+      // Find the first heading or focusable element in the target section to move focus
+      const focusableElement = element.querySelector('h1, h2, h3, button, a, [tabindex="0"]') as HTMLElement;
+      if (focusableElement) {
+        // Small timeout to allow scrolling to start/finish
+        setTimeout(() => {
+          focusableElement.focus();
+        }, 100);
+      }
+    }
   };
 
   const handleFocus = (e: React.FocusEvent<HTMLElement>) => {
@@ -74,11 +87,13 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* Emergency Button */}
+          {/* Emergency Button and Accessibility */}
           <div className="flex items-center justify-end space-x-3 flex-shrink-0">
+            
+
             <Button
               variant="destructive"
-              className="emergency-pulse hidden sm:flex items-center gap-2"
+              className="emergency-pulse hidden sm:flex items-center gap-2 mr-2"
               onFocus={handleFocus}
               onClick={() => {
                 speakText('Discando emergência 199');
@@ -89,6 +104,8 @@ export const Header = () => {
               <Phone className="h-icon w-icon" />
               <span className="font-semibold text-accessible">199</span>
             </Button>
+
+            <AccessibilityToolbar />
 
             {/* Mobile Menu Button */}
             <Button

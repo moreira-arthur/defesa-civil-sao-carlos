@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis, Line, ComposedChart } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
 import { useAccessibility } from './AccessibilityContext';
 
 // Mock data for daily rainfall (last 30 days)
@@ -72,6 +72,27 @@ export const RainfallChart = () => {
     return null;
   };
 
+  // Generate summaries for accessibility
+  const summaries = useMemo(() => {
+    // Daily summary
+    const totalRainfall30Days = dailyData.reduce((acc, curr) => acc + curr.rainfall, 0);
+    const maxRainfallDay = dailyData.reduce((prev, current) => (prev.rainfall > current.rainfall) ? prev : current);
+    const daysWithRain = dailyData.filter(d => d.rainfall > 0).length;
+
+    // Monthly summary
+    const totalRainfallYear = monthlyData.reduce((acc, curr) => acc + curr.rainfall, 0);
+    const wettestMonth = monthlyData.reduce((prev, current) => (prev.rainfall > current.rainfall) ? prev : current);
+
+    // Yearly summary
+    const wettestYear = yearlyData.reduce((prev, current) => (prev.rainfall > current.rainfall) ? prev : current);
+
+    return {
+      daily: `Gráfico de barras mostrando a chuva diária dos últimos 30 dias. O volume total acumulado foi de ${totalRainfall30Days} milímetros. Choveu em ${daysWithRain} dias. O dia mais chuvoso foi ${maxRainfallDay.date} com ${maxRainfallDay.rainfall} milímetros.`,
+      monthly: `Gráfico misto mostrando chuva e ocorrências nos últimos 12 meses. O total acumulado no período foi de ${totalRainfallYear} milímetros. O mês mais chuvoso foi ${wettestMonth.month} com ${wettestMonth.rainfall} milímetros.`,
+      yearly: `Gráfico histórico anual desde 2020. O ano mais chuvoso registrado foi ${wettestYear.year} com ${wettestYear.rainfall} milímetros e ${wettestYear.occurrences} ocorrências graves.`
+    };
+  }, []);
+
   return (
     <section id="rainfall" className="py-12 bg-background">
       <div className="container mx-auto px-4">
@@ -102,29 +123,70 @@ export const RainfallChart = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6">
-              <Tabs defaultValue="daily" className="w-full" onValueChange={setActiveTab}>
-                <TabsList className="grid w-full grid-cols-3 mb-8">
-                  <TabsTrigger
-                    value="daily"
-                    onClick={() => speakText('Visualizando gráfico diário')}
-                  >
-                    Últimos 30 Dias
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="monthly"
-                    onClick={() => speakText('Visualizando gráfico mensal')}
-                  >
-                    Últimos 12 Meses
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="yearly"
-                    onClick={() => speakText('Visualizando gráfico anual')}
-                  >
-                    Histórico Anual
-                  </TabsTrigger>
-                </TabsList>
+              {/* Custom Tabs using Buttons for better keyboard navigation */}
+              <div className="grid w-full grid-cols-3 mb-8 bg-muted p-1 rounded-lg" role="tablist">
+                <Button
+                  variant={activeTab === 'daily' ? 'default' : 'ghost'}
+                  className="w-full rounded-md"
+                  onClick={() => {
+                    setActiveTab('daily');
+                    speakText('Visualizando gráfico diário');
+                  }}
+                  role="tab"
+                  aria-selected={activeTab === 'daily'}
+                  aria-controls="panel-daily"
+                  tabIndex={0}
+                >
+                  Últimos 30 Dias
+                </Button>
+                <Button
+                  variant={activeTab === 'monthly' ? 'default' : 'ghost'}
+                  className="w-full rounded-md"
+                  onClick={() => {
+                    setActiveTab('monthly');
+                    speakText('Visualizando gráfico mensal');
+                  }}
+                  role="tab"
+                  aria-selected={activeTab === 'monthly'}
+                  aria-controls="panel-monthly"
+                  tabIndex={0}
+                >
+                  Últimos 12 Meses
+                </Button>
+                <Button
+                  variant={activeTab === 'yearly' ? 'default' : 'ghost'}
+                  className="w-full rounded-md"
+                  onClick={() => {
+                    setActiveTab('yearly');
+                    speakText('Visualizando gráfico anual');
+                  }}
+                  role="tab"
+                  aria-selected={activeTab === 'yearly'}
+                  aria-controls="panel-yearly"
+                  tabIndex={0}
+                >
+                  Histórico Anual
+                </Button>
+              </div>
 
-                <TabsContent value="daily" className="h-[400px] w-full">
+              {/* Accessible Summary */}
+              <div
+                className="bg-accent/20 p-4 rounded-lg mb-4 border border-accent"
+                tabIndex={0}
+                onFocus={(e) => speakText(e.currentTarget.textContent || '')}
+                role="status"
+              >
+                <p className="font-medium text-foreground">
+                  <span className="sr-only">Resumo do gráfico: </span>
+                  {activeTab === 'daily' && summaries.daily}
+                  {activeTab === 'monthly' && summaries.monthly}
+                  {activeTab === 'yearly' && summaries.yearly}
+                </p>
+              </div>
+
+              {/* Charts - Hidden from screen readers to avoid noise */}
+              <div className="h-[400px] w-full" aria-hidden="true">
+                {activeTab === 'daily' && (
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={dailyData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
@@ -145,13 +207,12 @@ export const RainfallChart = () => {
                         name="Chuva (mm)"
                         fill="hsl(var(--primary))"
                         radius={[4, 4, 0, 0]}
-                        aria-label="Volume de chuva em milímetros"
                       />
                     </BarChart>
                   </ResponsiveContainer>
-                </TabsContent>
+                )}
 
-                <TabsContent value="monthly" className="h-[400px] w-full">
+                {activeTab === 'monthly' && (
                   <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart data={monthlyData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
@@ -193,9 +254,9 @@ export const RainfallChart = () => {
                       />
                     </ComposedChart>
                   </ResponsiveContainer>
-                </TabsContent>
+                )}
 
-                <TabsContent value="yearly" className="h-[400px] w-full">
+                {activeTab === 'yearly' && (
                   <ResponsiveContainer width="100%" height="100%">
                     <ComposedChart data={yearlyData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
                       <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />
@@ -237,8 +298,8 @@ export const RainfallChart = () => {
                       />
                     </ComposedChart>
                   </ResponsiveContainer>
-                </TabsContent>
-              </Tabs>
+                )}
+              </div>
             </CardContent>
           </Card>
         </div>
